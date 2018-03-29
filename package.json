@@ -5,10 +5,14 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.36",
+    "@babel/runtime": "^7.0.0-beta.42",
+    "leaflet": "^1.3.1",
     "meteor-node-stubs": "^0.3.2",
     "react": "^16.2.0",
+    "react-day-picker": "^7.1.4",
     "react-dom": "^16.2.0",
-    "react-router-dom": "^4.2.2"
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^4.2.2",
+    "simpl-schema": "^1.4.2"
   }
 }

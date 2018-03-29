@@ -1,10 +1,31 @@
 import React, {Component} from 'react';
-
+import { Redirect } from "react-router-dom";
+import {Route} from "react-router-dom";
+import EventList from "./EventList.js";
 
 // Home component - represents the whole app
 class Home extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            goSearchEv : false
+        };
+
+    }
+
+    goSearch(){
+        console.log("hols")
+        this.setState({goSearchEv:true});
+    }
     render() {
+
+        if(this.state.goSearchEv)
+        {
+            return(
+                <Redirect to={"/events"}/>
+            );
+        }
         return (
             <div className="header-2">
                 <div className="page-header">
@@ -17,9 +38,9 @@ class Home extends Component {
                                     <h5>Now you have no excuses, it's time to surprise your clients, your competitors, and why not, the world. You probably won't have a better chance to show off all your potential if it's not by designing a website for your own agency or web studio.</h5>
                                     <br/>
                                         <div className="buttons">
-                                            <a href="#" className="btn btn-danger btn-lg">
-                                                Read More
-                                            </a>
+                                            <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
+                                                Search Eventir
+                                            </button>
                                         </div>
                                 </div>
                             </div>
@@ -84,6 +105,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <Route exact path="/events" component={EventList}/>
             </div>
         );
     }
