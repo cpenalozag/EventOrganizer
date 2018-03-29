@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import AccountsUIWrapper from './AccountsUIWrapper.js';
 import {NavLink} from "react-router-dom";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import EventList from "./EventList";
@@ -30,11 +30,7 @@ class Nav extends Component {
                                     <li className="nav-item">
                                         <NavLink exact className="nav-link" to="/events">Events</NavLink>
                                     </li>
-                                    <li className="nav-item">
-                                        <a className="btn btn-danger" href="#">
-                                            <i className="nc-icon nc-cart-simple"></i> Log In
-                                        </a>
-                                    </li>
+                                    <li className="nav-item"><AccountsUIWrapper/></li>
                                 </ul>
                             </div>
                         </div>

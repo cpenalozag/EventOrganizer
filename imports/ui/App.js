@@ -1,17 +1,22 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
-
-import Nav from './Nav.js';
-import EventDetail from './EventDetail.js';
+import Nav from "./Nav";
 
 // App component - represents the whole app
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+
 
     render() {
         return (
+
             <div>
                 <Nav/>
+
             </div>);
     }
 }

@@ -729,6 +729,39 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .input-group-btn .btn-default:not(.btn-fill) {
     border-color: #DDDDDD;
 }
+.btn-danger{
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+#login-sign-in-link {
+    padding: 13% 23%;
+    color: #fff;
+    background-color: #dc3545;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-width: 2px;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border-radius: .25rem;
+}
+#login-sign-in-link:hover{
+    background-color: #cc2a3a;
+}
+#login-buttons {
+    margin: 16px 2px;
+    box-sizing: border-box;
+    font-weight: 600;
+    line-height: 1.75;
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+#login-buttons a, .accounts-dialog a {
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .input-group-btn:last-child > .btn {
     margin-left: 0;
@@ -1440,7 +1473,7 @@ textarea.form-control {
 
 .navbar {
     border: 0;
-    font-size: 14px;
+    font-size: 18px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     padding: 0;
@@ -1454,8 +1487,8 @@ textarea.form-control {
     font-weight: 600;
     margin: 5px 0px;
     padding: 20px 15px;
-    font-size: 14px;
-    color: #66615B;
+    font-size: 18px;
+    color: #000000;
     text-transform: uppercase;
 }
 .navbar .navbar-nav .nav-item .nav-link {
@@ -1463,7 +1496,7 @@ textarea.form-control {
     margin: 15px 3px;
     padding: 10px 15px;
     opacity: .8;
-    font-size: 12px;
+    font-size: 16px;
     text-transform: uppercase;
     font-weight: 600;
     color: #66615B;
@@ -1471,6 +1504,10 @@ textarea.form-control {
 .navbar .navbar-nav .nav-item .nav-link.btn {
     margin: 15px 3px;
     padding: 9px;
+}
+.active{
+    color: #000 !important;
+    font-weight: bold !important;
 }
 .navbar .navbar-nav .nav-item .nav-link [class^="fa"] {
     font-size: 17px;
@@ -1508,12 +1545,12 @@ textarea.form-control {
     right: -2px;
 }
 .navbar .btn {
-    margin: 15px 3px;
-    font-size: 12px;
+    margin: 12px 2px;
+    font-size: 15px;
 }
 .navbar .btn i {
     font-size: 14px;
-    line-height: 13px;
+    line-height: 12px;
 }
 .navbar .btn-simple {
     font-size: 16px;
@@ -1574,6 +1611,9 @@ textarea.form-control {
     color: #FFFFFF;
     border-color: #FFFFFF;
 }
+.red {
+    color: #dc3545;
+}
 .navbar-transparent .navbar-nav .active .nav-link
 .active .nav-link:hover,
 .navbar-transparent .navbar-nav .active .nav-link:focus,
@@ -1590,6 +1630,7 @@ textarea.form-control {
 }
 .navbar-transparent .navbar-nav .nav .nav-item a.btn:hover, [class*="bg"] .navbar-nav .nav .nav-item a.btn:hover {
     background-color: transparent;
+    color:#00bbff;
 }
 .navbar-transparent .navbar-nav .dropdown .nav-link .caret,
 .navbar-transparent .navbar-nav .dropdown .nav-link:hover .caret,
@@ -3724,15 +3765,13 @@ select.selectpicker {
 }
 
 .page-header {
-    background-color: #B2AFAB;
-    background-position: center center;
     background-size: cover;
+    max-height: 100%;
     min-height: 100vh;
-    max-height: 999px;
     overflow: hidden;
     position: relative;
     width: 100%;
-    z-index: 1;
+
 }
 .page-header.page-header-small {
     min-height: 65vh !important;
@@ -4556,106 +4595,6 @@ video {
     padding-left: 3px;
 }
 
-.modal-header {
-    border-bottom: 1px solid #DDDDDD;
-    padding: 20px;
-    text-align: center;
-    display: block !important;
-}
-.modal-header.no-border-header {
-    border-bottom: 0 none !important;
-}
-.modal-header.no-border-header .modal-title {
-    margin-top: 20px;
-}
-.modal-header button.close {
-    margin-top: -25px;
-}
-
-.modal-dialog.modal-sm .modal-header button.close, .modal-dialog.modal-register .modal-header button.close {
-    margin-top: 0;
-}
-
-.modal-content {
-    border: 0 none;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-.modal-content .modal-header h6 {
-    margin-top: 10px;
-}
-
-.modal-dialog {
-    padding-top: 60px;
-}
-
-.modal-body {
-    padding: 20px 50px;
-    color: #000;
-}
-
-.modal-footer {
-    border-top: 1px solid #DDDDDD;
-    padding: 0px;
-}
-.modal-footer.no-border-footer {
-    border-top: 0 none;
-}
-
-.modal-footer .left-side, .modal-footer .right-side {
-    display: inline-block;
-    text-align: center;
-    width: 49%;
-}
-
-.modal-footer .btn-link {
-    padding: 20px;
-    width: 100%;
-}
-
-.modal-footer .divider {
-    background-color: #DDDDDD;
-    display: inline-block;
-    float: inherit;
-    height: 63px;
-    margin: 0px -3px;
-    width: 1px;
-}
-
-.modal.fade .modal-dialog {
-    transform: none;
-    -webkit-transform: none;
-    -moz-transform: none;
-}
-
-.modal.in .modal-dialog {
-    transform: none;
-    -webkit-transform: none;
-    -moz-transform: none;
-}
-
-.modal-backdrop.in {
-    opacity: 0.25;
-}
-
-.modal-register .modal-footer {
-    text-align: center;
-    margin-bottom: 25px;
-    padding: 20px 0 15px;
-}
-.modal-register .modal-footer span {
-    width: 100%;
-}
-
-.modal-header:after {
-    display: table;
-    content: " ";
-}
-
-.modal-header:before {
-    display: table;
-    content: " ";
-}
 
 /*          Changes for small display      */
 @media (max-width: 767px) {
@@ -8697,9 +8636,6 @@ body {
 .blog-page .related-articles .blog-title {
     margin-top: 15px;
 }
-.blog-page .blog-header-image {
-    background-image: url("../img/farid-askerov.jpg");
-}
 .blog-page .navbar input {
     background-color: rgba(255, 255, 255, 0.17);
 }
@@ -10955,46 +10891,293 @@ pre.prettyprint {
     text-overflow: ellipsis;
     cursor: pointer;
 }
-.active{
-    color:black;
-
-}
-.demo-icons ul p {
-    padding: 20px 0 0;
-    font-size: 12px;
-    margin: 0;
-}
-.demo-icons ul p::selection, .demo-icons ul em::selection {
-    background: #608CEE;
-    color: #efefef;
-}
-.demo-icons ul em {
-    margin-bottom: 8px;
-    font-size: 12px;
-}
-.demo-icons ul em::before {
-    content: '[';
-}
-.demo-icons ul em::after {
-    content: ']';
-}
-.demo-icons ul input {
-    text-align: center;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    outline: none;
-    display: none;
-}
-
-.nav-down {
+#login-dropdown-list {
     position: fixed;
-    top: 0;
-    transition: top 0.5s ease-in-out;
-    width: 100%;
+    z-index:5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 53, 69, 0.95);
+    border-radius: 5px;
+
 }
 
-.nav-up {
-    top: -80px;
+
+.Modal {
+    position: fixed;
+    z-index:5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(220, 53, 69, 0.95);
+    border-radius: 5px;
+}
+.Modal a {
+    display: block;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 0 10px 0;
+    margin: 10px;
+}
+.Modal a:hover {
+    text-decoration: underline;
 }
 
+.Input {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    border-bottom: 1px solid #FFFFFF;
+    margin: 0 20px;
+}
+.Input input {
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+.Input input:required {
+    box-shadow: none;
+}
+.Input input:focus ~ label {
+    opacity: 1;
+}
+
+.Input input[type='password'] ~ label::before {
+    content: "";
+}
+
+.accounts-dialog > input{
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+}
+
+label {
+    font-family: FontAwesome;
+    color: white;
+    font-size: 14px;
+    margin-top: 17px;
+    transition: opacity 0.3s ease-in-out;
+}
+label::before {
+    padding: 5px 5px 0 0;
+    opacity: 0.5;
+}
+#login-buttons-password button{
+    display: block;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 0 10px 0;
+    margin: 10px;
+}
+
+#login-username-label-and-input{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #FFFFFF;
+    margin: 0 20px;
+}
+#login-password-label-and-input{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #FFFFFF;
+    margin: 0 20px;
+}
+#login-password-again-label-and-input {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    border-bottom: 1px solid #FFFFFF;
+}
+#login-password-again-label-and-input input{
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+
+}
+#login-dropdown-list {
+    padding: 3%;
+}
+#login-dropdown-list{
+    color: #FFFFFF;
+}
+.login-close-text {
+    color: #FFFFFF;
+    content: 'x';
+    font-weight: 300;
+    text-align: right;
+
+}
+#login-buttons-logout {
+    cursor:pointer;
+}
+#login-buttons-open-change-password {
+    cursor:pointer;
+}
+.additional-link-container {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 800;
+}
+#login-username-label-and-input input{
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+
+}
+.error-message{
+    color: #FFFFFF !important;
+}
+#login-password-label-and-input input{
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 2px 10px;
+    margin: 18px 4px 0 4px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+
+}
+#login-username-label-and-input label {
+    font-family: Montserrat;
+    color: white;
+    font-size: 16px;
+    margin-top: 17px;
+    transition: opacity 0.3s ease-in-out;
+}
+#login-password-again-label-and-input label {
+    font-family: Montserrat;
+    color: white;
+    font-size: 16px;
+    margin-top: 17px;
+    transition: opacity 0.3s ease-in-out;
+}
+#login-password-label-and-input label {
+    font-family: Montserrat;
+    color: white;
+    font-size: 16px;
+    margin-top: 17px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+
+form button {
+    position: relative;
+    margin: 15px 0 5px 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.75);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: #dc3545;
+    width: 85%;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+form button:hover {
+    background: rgb(255,255,255);
+
+}
+
+.social-signin {
+    text-align: center;
+}
+.social-signin button {
+    width: 40%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+.social-signin button i {
+    font-size: 20px;
+    color: white;
+}
+.social-signin button.fb {
+    background: #3A5A98;
+    margin-right: 13px;
+}
+.social-signin button.tw {
+    background: #37b1ee;
+}
+
+.bringitback {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
+    background: #58a4b0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    width: 200px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+.logo i {
+    margin: auto;
+    display: block;
+    padding: 30px 0 0 0;
+    font-size: 80px;
+    transform: translateX(-4vmin);
+}
+.logo span {
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.animation-enter {
+    opacity: 0.01;
+}
+.animation-enter.animation-enter-active {
+    opacity: 1;
+    transition: opacity 0.6s ease, margin 0.5s ease;
+}
+
+.animation-leave {
+    margin-top: 0px;
+    opacity: 1;
+}
+.animation-leave.animation-leave-active {
+    margin-top: -30px;
+    opacity: 0.01;
+    transition: opacity 0.2s ease;
+}
+
+.animation-appear {
+    opacity: 0.01;
+}
+
+.animation-appear.animation-appear-active {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
