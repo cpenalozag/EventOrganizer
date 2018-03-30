@@ -8,7 +8,7 @@ import DatePicker from './DatePicker.js';
 import {userEventsList} from "../api/userEventsList";
 
 // App component - represents the whole app
-class EventList extends Component {
+class UserEventList extends Component {
 
     constructor(props) {
         super(props);
@@ -47,13 +47,23 @@ class EventList extends Component {
     }
 
     renderEvents() {
-        const filteredEvents = this.props.events.filter(
+        let idEvents = this.props.userEvents._ListEventsId;
+
+        let filtered = {};
+        for(let i = 0; i<idEvents.length; i++){
+            filtered.append(this.props.events.filter((event)=>{
+                return event._id.equals(idEvents[0]);
+            }));
+        }
+        console.log(filtered);
+
+        const filteredEvents = this.props.userEvents ? this.props.userEvents.filter(
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-            });
-        return filteredEvents.map((event) => (
+            }):{};
+        return filteredEvents ? filteredEvents.map((event) => (
             <Event key={event._id} event={event}/>
-        ));
+        )):"";
     }
 
     render() {
@@ -96,10 +106,10 @@ class EventList extends Component {
 }
 
 export default withTracker(() => {
+    const userEvents = Meteor.userId() ? userEventsList.find({_idUser:Meteor.userId()}).fetch()[0]: {};
     return {
-        events: Events.find({}).fetch(),
-        currentUser:Meteor.user(),
-
+        userEvents
     };
-})(EventList);
+})(UserEventList);
+
 

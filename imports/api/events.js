@@ -5,7 +5,7 @@ import {SimpleSchema} from "simpl-schema/dist/SimpleSchema";
 export const Events = new Mongo.Collection('events');
 
 
-let EventsSchema = new SimpleSchema({
+/*let EventsSchema = new SimpleSchema({
     'name':{
         type:String,
         label:"Name of the event"
@@ -32,4 +32,4 @@ let EventsSchema = new SimpleSchema({
     }
 });
 
-Events.attachSchema(EventsSchema)
+Events.attachSchema(EventsSchema)*/

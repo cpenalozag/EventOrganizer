@@ -6,9 +6,11 @@ import EventList from "./EventList";
 import AddEvent from "./AddEvent";
 import Home from "./Home";
 import EventDetail from "./EventDetail";
+import UserEventList from "./UserEventList.js";
 
 
 class Nav extends Component {
+
     render() {
         return (
             <Router>
@@ -33,9 +35,12 @@ class Nav extends Component {
                                     <li className="nav-item">
                                         <NavLink exact className="nav-link" to="/events">Events</NavLink>
                                     </li>
-                                    <li className="nav-item">
+                                    { this.props.currentUser ? <li className="nav-item">
                                         <NavLink exact className="nav-link" to="/new">Create event</NavLink>
-                                    </li>
+                                    </li> :""}
+                                    { this.props.currentUser ? <li className="nav-item">
+                                        <NavLink exact className="nav-link" to="/myEvents">My events</NavLink>
+                                    </li> :""}
                                     <li className="nav-item"><AccountsUIWrapper/></li>
                                 </ul>
                             </div>
@@ -47,6 +52,7 @@ class Nav extends Component {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/new" component={AddEvent}/>
                     <Route exact path="/events/:eventId" component={EventDetail}/>
+                    <Route exact path="/myEvents" component={UserEventList}/>
                 </div>
             </Router>
 
