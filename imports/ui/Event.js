@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
+import { Link } from "react-router-dom";
 
 // Event component - represents a single event
 export default class Event extends Component {
 
     render() {
-        console.log(this.props)
         return (
             <div className="col-md-4">
-                <a className="card-link" href="">
+                <Link to={{pathname: `/events/${this.props.event._id._str}`, event:this.props.event }}>
                     <div className="card card-blog">
 
                         <div className="card-image">
@@ -34,8 +34,8 @@ export default class Event extends Component {
                             </div>
                         </div>
                     </div>
-                </a>
-
+                </Link>
+                <br/>
             </div>
         );
     }

@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import EventList from "./EventList";
 import AddEvent from "./AddEvent";
 import Home from "./Home";
+import EventDetail from "./EventDetail";
 
 class Nav extends Component {
     render() {
@@ -34,17 +35,6 @@ class Nav extends Component {
                                     <li className="nav-item">
                                         <NavLink exact className="nav-link" to="/new">Create event</NavLink>
                                     </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown
-                                        </a>
-                                        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a className="dropdown-item" href="#">Action</a>
-                                            <a className="dropdown-item" href="#">Another action</a>
-                                            <div className="dropdown-divider"></div>
-                                            <a className="dropdown-item" href="#">Something else here</a>
-                                        </div>
-                                    </li>
                                     <li className="nav-item"><AccountsUIWrapper/></li>
                                 </ul>
                             </div>
@@ -55,6 +45,7 @@ class Nav extends Component {
                     <Route exact path="/events" component={EventList}/>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/new" component={AddEvent}/>
+                    <Route exact path="/events/:eventId" component={EventDetail}/>
                 </div>
             </Router>
 

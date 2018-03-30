@@ -593,8 +593,8 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     border: 1px solid #ccc;
     border-left: none;
 }
-.form-control.no-border {
-    border: medium none !important;
+.no-border {
+    border: none !important;
 }
 .has-success .form-control, .has-error .form-control, .has-success .form-control:focus, .has-error .form-control:focus {
     -webkit-box-shadow: none;
@@ -1590,6 +1590,10 @@ textarea.form-control {
 }
 .redT {
     color: #dc3545;
+}
+a{
+    color: transparent;
+    text-decoration: none !important;
 }
 .navbar-transparent .navbar-nav .active .nav-link
 .active .nav-link:hover,
@@ -8616,14 +8620,12 @@ body {
 }
 .search .addon-xtreme {
     background-color: #FFFFFF;
-    font-size: 2.5em;
+    font-size: 2em;
     color: #a49e93;
 }
-.search .input-xtreme {
-    background-color: #FFFFFF;
-    font-size: 3em;
-    height: 70px;
-    margin-left: 20px;
+.input-xtreme {
+    font-size: 2em;
+    height: 40px;
     padding-left: 0px;
 }
 .search .follows li {

@@ -64,7 +64,7 @@ class EventList extends Component {
                             <h2 className="title">Search here</h2>
                             <br/>
                             <div className="input-group">
-                                <input type="text" className=" search-query form-control"
+                                <input type="text" className="form-control search-query"
                                        placeholder="Try: Torneo cachito uniandes"
                                        value={this.state.search}
                                        onChange={this.updateSearch.bind(this)}/>
@@ -81,8 +81,6 @@ class EventList extends Component {
                                 <DatePicker/>
                                 <button onClick={this.printDate.bind(this)}>Search</button>
                             </div>}
-                            <br/>
-                            <br/>
                             <br/>
                             <br/>
                             <div className="row">
