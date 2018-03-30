@@ -46,7 +46,7 @@ class EventList extends Component {
     }
 
     renderEvents() {
-        let filteredEvents = this.props.events.filter(
+        const filteredEvents = this.props.events.filter(
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });

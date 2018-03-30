@@ -7,6 +7,7 @@ import AddEvent from "./AddEvent";
 import Home from "./Home";
 import EventDetail from "./EventDetail";
 
+
 class Nav extends Component {
     render() {
         return (
