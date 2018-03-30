@@ -88,31 +88,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .description {
-    color: #9A9A9A;
-}
-
-blockquote small {
-    font-style: normal;
-}
-
-.text-muted {
-    color: #DDDDDD;
-}
-
-.text-primary, .text-primary:hover {
-    color: #51cbce !important;
-}
-
-.text-info, .text-info:hover {
-    color: #51bcda !important;
-}
-
-.text-success, .text-success:hover {
-    color: #6bd098 !important;
-}
-
-.text-warning, .text-warning:hover {
-    color: #fbc658 !important;
+    color: #333333;
 }
 
 .text-danger, .text-danger:hover {
@@ -1612,7 +1588,7 @@ textarea.form-control {
     color: #FFFFFF;
     border-color: #FFFFFF;
 }
-.red {
+.redT {
     color: #dc3545;
 }
 .navbar-transparent .navbar-nav .active .nav-link
@@ -4141,7 +4117,7 @@ video {
 }
 
 .icon-danger {
-    color: #f5593d;
+    color: #dc3545;
 }
 
 .icon-neutral {
@@ -6508,7 +6484,7 @@ a.pswp__share--download:hover {
     color: #333333;
 }
 .card .card-description {
-    color: #9A9A9A;
+    color: #444444;
     margin-bottom: 5px;
     margin-top: 15px;
 }
@@ -6593,42 +6569,17 @@ a.pswp__share--download:hover {
     background-color: #FFF;
     border: 0;
 }
-.card.card-contact .card-header .card-title {
-    color: #66615B;
-    margin-top: 0px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid #DDDDDD;
-}
+
 .card.card-contact .card-body .card-icon {
     float: left;
     margin-top: 24px;
     margin-right: 10px;
     border: 0;
 }
-.card.card-contact .card-body .card-icon i {
-    font-size: 30px;
-    padding: 25px;
-    width: 50px;
-    border: 0;
-    border-radius: 50%;
-    height: 110px;
-}
-.card.card-register {
-    background-color: #FF8F5E;
-    border-radius: 8px;
-    color: #fff;
-    max-width: 350px;
-    margin: 20px 0 70px;
-    min-height: 400px;
-    padding: 30px;
-}
 .card.card-register label {
     margin-top: 15px;
 }
-.card.card-register .card-title {
-    color: #B33C12;
-    text-align: center;
-}
+
 .card.card-register .btn {
     margin-top: 30px;
 }
@@ -6773,6 +6724,9 @@ a.pswp__share--download:hover {
 .card:hover .header .social-line,
 .card:hover .header .actions {
     opacity: 1;
+}
+.card-link{
+    text-decoration: none;
 }
 .card .card-category i,
 .card .label i {
@@ -7202,6 +7156,9 @@ a.pswp__share--download:hover {
     text-align: center;
     text-transform: none;
     margin-top: -65px;
+}
+.card-title{
+    color:#252422;
 }
 .card-product .author .card-title {
     color: #403D39;

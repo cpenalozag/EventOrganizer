@@ -4,8 +4,10 @@ import React, {Component} from 'react';
 export default class Event extends Component {
 
     render() {
+        console.log(this.props)
         return (
             <div className="col-md-4">
+                <a className="card-link" href="">
                     <div className="card card-blog">
 
                         <div className="card-image">
@@ -13,9 +15,9 @@ export default class Event extends Component {
                                  src={this.props.event.image_url} alt={"Image for event: "+this.props.event.name}/>
                         </div>
                         <div className="card-body">
-                            <h6 className="card-category text-info">{this.props.event.category}</h6>
+                            <h6 className="redT"><strong>{this.props.event.category}</strong></h6>
                             <h5 className="card-title">
-                                <a href="#">{this.props.event.name}</a>
+                                {this.props.event.name}
                             </h5>
                             <p className="card-description">
                                 {this.props.event.description.substring(0,70)+"..."} <br/>
@@ -32,6 +34,8 @@ export default class Event extends Component {
                             </div>
                         </div>
                     </div>
+                </a>
+
             </div>
         );
     }

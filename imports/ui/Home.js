@@ -35,11 +35,11 @@ class Home extends Component {
                             <div className="row">
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Eventirris</h1>
-                                    <h5>Now you have no excuses, it's time to surprise your clients, your competitors, and why not, the world. You probably won't have a better chance to show off all your potential if it's not by designing a website for your own agency or web studio.</h5>
+                                    <h5>Descripcíon.</h5>
                                     <br/>
                                         <div className="buttons">
                                             <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
-                                                Search Eventir
+                                                Search Events <i className="fa fa-search"></i>
                                             </button>
                                         </div>
                                 </div>
@@ -55,50 +55,38 @@ class Home extends Component {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="info">
                                 <div className="icon icon-danger">
-                                    <i className=""></i>
+                                    <i className="fa fa-calendar"></i>
                                 </div>
                                 <div className="description">
-                                    <h4 className="info-title">Beautiful Gallery</h4>
-                                    <p className="description">Spend your time generating new ideas. You don't have to think of implementing.</p>
+                                    <h4 className="info-title">Plan events</h4>
+                                    <p className="description">Easily manage the planning process of your event.</p>
                                     <a href="#pkp" className="btn btn-link btn-danger">See more</a>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="info">
                                 <div className="icon icon-danger">
-                                    <i className="nc-icon nc-bulb-63"></i>
+                                    <i className="fa fa-users"></i>
                                 </div>
                                 <div className="description">
-                                    <h4 className="info-title">New Ideas</h4>
-                                    <p>Larger, yet dramatically thinner. More powerful, but remarkably power efficient.</p>
+                                    <h4 className="info-title">Share with your friends</h4>
+                                    <p>Invite your friends to events and join your friends at their events!.</p>
                                     <a href="#pkp" className="btn btn-link btn-danger">See more</a>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="info">
                                 <div className="icon icon-danger">
-                                    <i className="nc-icon nc-chart-bar-32"></i>
+                                    <i className="fa fa-flask"></i>
                                 </div>
                                 <div className="description">
-                                    <h4 className="info-title">Statistics</h4>
-                                    <p>Choose from a veriety of many colors resembling sugar paper pastels.</p>
-                                    <a href="#pkp" className="btn btn-link btn-danger">See more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div className="info">
-                                <div className="icon icon-danger">
-                                    <i className="nc-icon nc-sun-fog-29"></i>
-                                </div>
-                                <div className="description">
-                                    <h4 className="info-title">Delightful design</h4>
-                                    <p>Find unique and handmade delightful designs related items directly from our sellers.</p>
+                                    <h4 className="info-title">Enjoy new experiences</h4>
+                                    <p>Join public events to meet people or have fun doing different activities!</p>
                                     <a href="#pkp" className="btn btn-link btn-danger">See more</a>
                                 </div>
                             </div>

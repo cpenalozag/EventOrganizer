@@ -61,17 +61,6 @@ class EventList extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <ul id="myTab" className="nav nav-tabs">
-                                <li className="nav-item">
-                                    <a className="nav-link active" href="#">Active</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Link</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Link</a>
-                                </li>
-                            </ul>
                             <h2 className="title">Search here</h2>
                             <br/>
                             <div className="input-group">
