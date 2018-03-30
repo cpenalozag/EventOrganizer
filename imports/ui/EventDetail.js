@@ -16,18 +16,16 @@ class EventDetail extends Component {
         return (
 
             <div className="blog-2 section section-gray">
-                <Detail/>
                 <div className="container">
+                    <Detail event={this.state.event}/>
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-md-6 col-sm-6">
-                                        <Comments/>
-                                    </div>
-                                    <div className="col-md-6 col-sm-6">
-                                        <h1>,</h1>
-                                    </div>
+                            <div className="row">
+                                <div className="col-md-6 col-sm-6">
+                                    <Comments/>
+                                </div>
+                                <div className="col-md-6 col-sm-6">
+                                    <h2 className="text-center title">Items</h2>
                                 </div>
                             </div>
                         </div>
@@ -42,34 +40,17 @@ class Detail extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-6 ml-auto mr-auto text-center title">
-                        <h2>A place for storytelling</h2>
-                        <h3 className="title-uppercase">
-                            <small>Written by designers for designers</small>
-                        </h3>
+            <div className="row">
+                <div className="col-md-10 ml-auto mr-auto text-center title">
+                    <h2>{this.props.event.name}</h2>
+                    <h3 className="title-uppercase">
+                        <small>{this.props.event.location}</small>
+                    </h3>
+                    <div className="text-center">
+                        <h6 className="title-uppercase">{this.props.event.date}</h6>
+                        <p align="justify">{this.props.event.description}</p>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-10 ml-auto mr-auto">
-                        <div className="text-center">
-                            <span className="label label-warning main-tag">Trending</span>
-                            <a href="javascrip: void(0);"><h3 className="title">Make Somebody Nervous Before You
-                                Die</h3></a>
-                            <h6 className="title-uppercase">October 10, 2016</h6>
-                        </div>
-                    </div>
-                    <div className="col-md-8 ml-auto mr-auto">
-                        <a href="javascrip: void(0);">
-                            <div className="card" data-radius="none"></div>
-                            <p className="image-thumb text-center">Photo by Cam Adams</p>
-                        </a>
-
-
-                    </div>
-                </div>
-
             </div>
         );
     }

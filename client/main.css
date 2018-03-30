@@ -143,13 +143,13 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .title {
-    margin-top: 30px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     min-height: 32px;
 }
 
 .title.text-center {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 /*     General overwrite     */

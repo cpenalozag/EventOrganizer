@@ -23,12 +23,10 @@ export default class Event extends Component {
                                 {this.props.event.description.substring(0,70)+"..."} <br/>
                             </p>
                             <hr/>
-                            <div className="card-footer">
+                            <div className="card-footer text-center">
                                 <div className="author">
-                                    <img
-                                        src="https://rampages.us/alharthiaa/wp-content/uploads/sites/8487/2015/08/5249700000_5247598126_mrbean_rare_collection_xlarge_xlarge.jpeg"
-                                        alt="..." className="avatar img-raised"/>
-                                    <span>Mike John</span>
+                                    <i className="fa fa-calendar redT"></i>
+                                    <span> {this.props.event.date}</span>
                                 </div>
 
                             </div>
