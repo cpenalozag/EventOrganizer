@@ -47,7 +47,7 @@ class EventList extends Component {
     }
 
     renderEvents() {
-        const filteredEvents = this.props.events.filter(
+        const filteredEvents = this.props.eventsList.filter(
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
@@ -62,7 +62,7 @@ class EventList extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <h2 className="title">Search here</h2>
+                            <h2 className="title">Search events here</h2>
                             <br/>
                             <div className="input-group">
                                 <input type="text" className="form-control search-query"
@@ -95,11 +95,5 @@ class EventList extends Component {
     }
 }
 
-export default withTracker(() => {
-    return {
-        events: Events.find({}).fetch(),
-        currentUser:Meteor.user(),
 
-    };
-})(EventList);
-
+export default EventList;

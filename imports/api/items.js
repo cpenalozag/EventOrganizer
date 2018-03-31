@@ -1,0 +1,59 @@
+import { Mongo } from "meteor/mongo";
+import { Meteor } from "meteor/meteor";
+import { check } from "meteor/check";
+
+
+export const Items = new Mongo.Collection("items");
+
+if(Meteor.isServer){
+    Meteor.publish("items", function itemsPublication(){
+        return Items.find({
+            $or :[
+                {owner:this.userId},
+            ],
+        });
+    });
+}
+
+Meteor.methods({
+    "items.insert"(text){
+        check(text, String);
+
+        //Make sure the user is logged in before inserting a item
+
+        if(!this.userId){
+            throw new Meteor.Error("Not-authorized");
+        }
+
+        Items.insert({
+            text,
+            createdAt: new Date(),
+        });
+    },
+    'items.remove'(itemId){
+        check(itemId, String);
+        const item = Items.findOne(itemId);
+        if(item.private && item.owner !== this.userId){
+            throw new Meteor.Error('Not-authorized');
+        }
+        Items.remove(itemId);
+    },
+    "items.setChecked"(itemId, setChecked){
+        check(itemId, String);
+        check(setChecked, Boolean);
+
+        Items.update(itemId, {$set:{checked:setChecked}});
+    },
+
+    "items.setPrivate"(itemId,setToPrivate){
+        check(itemId, String);
+        check(setToPrivate, Boolean);
+
+        const item = Items.findOne(itemId);
+        if(item.private && item.owner !== this.userId){
+            throw new Meteor.Error('Not-authorized');
+        }
+
+        Items.update(itemId, {$set: {private:setToPrivate } });
+    },
+});

@@ -13,13 +13,14 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Nav currentUser = {this.props.currentUser}/>
+                <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList}/>
             </div>);
     }
 }
 
 export default withTracker(() => {
     return {
+        eventsList: Events.find({}).fetch(),
         currentUser:Meteor.user()
     };
 })(App);

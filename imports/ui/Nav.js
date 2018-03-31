@@ -12,6 +12,7 @@ import UserEventList from "./UserEventList.js";
 class Nav extends Component {
 
     render() {
+        console.log(this.props)
         return (
             <Router>
                 <div>
@@ -48,11 +49,11 @@ class Nav extends Component {
                     </nav>
 
                     <br/>
-                    <Route exact path="/events" component={EventList}/>
+                    <Route exact path="/events" render={()=><EventList eventsList={this.props.eventsList}/>} />
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/new" component={AddEvent}/>
-                    <Route exact path="/events/:eventId" component={EventDetail}/>
-                    <Route exact path="/myEvents" component={UserEventList}/>
+                    <Route exact path="/events/:eventId" component={EventDetail} />
+                    <Route exact path="/myEvents" render = {()=><UserEventList eventsList={this.props.eventsList} currentUser ={this.props.currentUser}/>}/>
                 </div>
             </Router>
 

@@ -6,6 +6,8 @@ import {Events} from '../api/events.js';
 import Event from './Event.js';
 import DatePicker from './DatePicker.js';
 import {userEventsList} from "../api/userEventsList";
+import {Redirect, Route} from "react-router-dom";
+import EventList from "./EventList.js";
 
 // App component - represents the whole app
 class UserEventList extends Component {
@@ -14,7 +16,8 @@ class UserEventList extends Component {
         super(props);
         this.state = {
             search: "",
-            filterDate: false
+            filterDate: false,
+            eventsBool:true
         };
     }
 
@@ -42,73 +45,103 @@ class UserEventList extends Component {
         });
     }
 
-    printDate(){
+    printDate() {
         console.log(this.props);
     }
 
     renderEvents() {
         let idEvents = this.props.userEvents._ListEventsId;
 
-        let filtered = {};
-        for(let i = 0; i<idEvents.length; i++){
-            filtered.append(this.props.events.filter((event)=>{
-                return event._id.equals(idEvents[0]);
+        let filtered = [];
+        console.log(this.props);
+        for (let i = 0; i < idEvents.length; i++) {
+            filtered.push(this.props.eventsList.filter((event) => {
+                return event._id.equals(idEvents[i]);
             }));
         }
         console.log(filtered);
 
-        const filteredEvents = this.props.userEvents ? this.props.userEvents.filter(
+        const filteredEvents = filtered.filter(
             (event) => {
-                return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-            }):{};
+                console.log(event);
+                return event[0].name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+            });
         return filteredEvents ? filteredEvents.map((event) => (
-            <Event key={event._id} event={event}/>
-        )):"";
+            <Event key={event[0]._id} event={event[0]}/>
+        )) : "";
+    }
+
+    redirectEvents() {
+        this.setState({eventsBool:false});
     }
 
     render() {
+
+        if(!this.state.eventsBool)
+        {
+            return(
+                <Redirect to = "/events"/>
+            )
+        }
         return (
-            <div className="blog-2 section section-gray">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-10 ml-auto mr-auto">
-                            <h2 className="title">Search here</h2>
-                            <br/>
-                            <div className="input-group">
-                                <input type="text" className="form-control search-query"
-                                       placeholder="Try: Torneo cachito uniandes"
-                                       value={this.state.search}
-                                       onChange={this.updateSearch.bind(this)}/>
-                            </div>
-                            <br/>
+            <div>
+                {this.props.currentUser ?
+                    <div className="blog-2 section section-gray">
+                        <div className="container">
                             <div className="row">
-                                <div className="col-lg-3 col-md-3 col-sm-3">
-                                    <button onClick={this.filterDate.bind(this)}>
-                                        Filter by date
-                                    </button>
+                                <div className="col-md-10 ml-auto mr-auto">
+                                    <h2 className="title">Tamo Ledy Pal Paly</h2>
+
+                                    {this.props.userEvents ? <div>
+                                            <h3 className="subtittle">Tus eventos {Meteor.user().username}</h3>
+                                            <br/>
+                                            <div className="input-group">
+                                                <input type="text" className="form-control search-query"
+                                                       placeholder="Try: Torneo cachito uniandes"
+                                                       value={this.state.search}
+                                                       onChange={this.updateSearch.bind(this)}/>
+                                            </div>
+                                            <br/>
+                                            <div className="row">
+                                                <div className="col-lg-3 col-md-3 col-sm-3">
+                                                    <button onClick={this.filterDate.bind(this)}>
+                                                        Filter by date
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            {this.state.filterDate && <div className="row">
+                                                <DatePicker/>
+                                                <button onClick={this.printDate.bind(this)}>Search</button>
+                                            </div>}
+                                            <br/>
+                                            <br/>
+                                            <div className="row">
+                                                {this.renderEvents()}
+                                            </div>
+                                        </div> :
+                                        <div><h3>Wow!! {Meteor.user().username} You don´t have events. Go to events and
+                                            join one now. </h3>
+                                            <br/>
+                                            <div className="ml-auto mr-auto">
+                                            <button onClick={this.redirectEvents.bind(this)} className="btn btn-danger btn-lg">
+                                                Join event! <i className="fa fa-search"></i>
+                                            </button>
+                                            </div>
+                                        </div>}
                                 </div>
                             </div>
-                            {this.state.filterDate && <div className="row">
-                                <DatePicker/>
-                                <button onClick={this.printDate.bind(this)}>Search</button>
-                            </div>}
-                            <br/>
-                            <br/>
-                            <div className="row">
-                                {this.renderEvents()}
-                            </div>
                         </div>
-                    </div>
-                </div>
+                    </div> : <Redirect to="/"/>}
+                <Route exact path="/events" render={() => <EventList eventsList={this.props.eventsList}/>}/>
             </div>
         );
     }
 }
 
 export default withTracker(() => {
-    const userEvents = Meteor.userId() ? userEventsList.find({_idUser:Meteor.userId()}).fetch()[0]: {};
+    const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
     return {
-        userEvents
+        userEvents,
     };
 })(UserEventList);
 
