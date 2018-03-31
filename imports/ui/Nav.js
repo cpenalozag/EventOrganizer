@@ -12,7 +12,6 @@ import UserEventList from "./UserEventList.js";
 class Nav extends Component {
 
     render() {
-        console.log(this.props)
         return (
             <Router>
                 <div>

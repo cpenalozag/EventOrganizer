@@ -11,11 +11,9 @@ class Home extends Component {
         this.state = {
             goSearchEv : false
         };
-
     }
 
     goSearch(){
-        console.log("hols")
         this.setState({goSearchEv:true});
     }
     render() {

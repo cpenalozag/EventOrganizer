@@ -17,7 +17,7 @@ class UserEventList extends Component {
         this.state = {
             search: "",
             filterDate: false,
-            eventsBool:true
+            eventsBool: true
         };
     }
 
@@ -72,15 +72,14 @@ class UserEventList extends Component {
     }
 
     redirectEvents() {
-        this.setState({eventsBool:false});
+        this.setState({eventsBool: false});
     }
 
     render() {
 
-        if(!this.state.eventsBool)
-        {
-            return(
-                <Redirect to = "/events"/>
+        if (!this.state.eventsBool) {
+            return (
+                <Redirect to="/events"/>
             )
         }
         return (
@@ -92,8 +91,9 @@ class UserEventList extends Component {
                                 <div className="col-md-10 ml-auto mr-auto">
                                     <h2 className="title">Tamo Ledy Pal Paly</h2>
 
-                                    {this.props.userEvents ? <div>
-                                            <h3 className="subtittle">Tus eventos {Meteor.user().username}</h3>
+                                    {this.props.userEvents ?
+                                        <div>
+                                            <h3 className="subtittle">Your Events</h3>
                                             <br/>
                                             <div className="input-group">
                                                 <input type="text" className="form-control search-query"
@@ -119,15 +119,20 @@ class UserEventList extends Component {
                                                 {this.renderEvents()}
                                             </div>
                                         </div> :
-                                        <div><h3>Wow!! {Meteor.user().username} You don´t have events. Go to events and
-                                            join one now. </h3>
+                                        <div>
+                                            <h3>
+                                                Wow!! {Meteor.user().username} you don't have events. Go to events and
+                                                join one now.
+                                            </h3>
                                             <br/>
                                             <div className="ml-auto mr-auto">
-                                            <button onClick={this.redirectEvents.bind(this)} className="btn btn-danger btn-lg">
-                                                Join event! <i className="fa fa-search"></i>
-                                            </button>
+                                                <button onClick={this.redirectEvents.bind(this)}
+                                                        className="btn btn-danger btn-lg">
+                                                    Join event! <i className="fa fa-search"></i>
+                                                </button>
                                             </div>
-                                        </div>}
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>

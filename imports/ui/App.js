@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import Nav from "./Nav";
 import {Events} from "../api/events";
-import EventList from "./EventList";
-import {userEventsList} from "../api/userEventsList";
 // App component - represents the whole app
 class App extends Component {
     constructor(props) {
@@ -21,6 +19,6 @@ class App extends Component {
 export default withTracker(() => {
     return {
         eventsList: Events.find({}).fetch(),
-        currentUser:Meteor.user()
+        currentUser: Meteor.user()
     };
 })(App);
