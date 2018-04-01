@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import { Redirect } from "react-router-dom";
 import {Events} from "../api/events";
-import {ParticipantLists} from "../api/participantLists";
-import {ItemLists} from "../api/itemLists";
-import {Comments} from "../api/comments";
 
 // Add event component
 export default class AddEvent extends Component {
@@ -29,15 +26,6 @@ export default class AddEvent extends Component {
             createdAt: new Date(),
         });
         res = Events.find({},{limit:1, sort: {createdAt: -1}}).fetch();
-        ParticipantLists.insert({
-            eventId:res[0]._id,
-            participants:[]})
-        ItemLists.insert({
-            eventId:res[0]._id,
-            items:[]});
-        Comments.insert({
-            eventId:res[0]._id,
-            comments:[]});
         this.setState({goSearchEv:true});
     }
 

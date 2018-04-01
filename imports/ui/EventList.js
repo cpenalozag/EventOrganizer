@@ -18,20 +18,6 @@ class EventList extends Component {
         };
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        // Find the text field via the React ref
-        const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
-        Events.insert({
-            text,
-            createdAt: new Date(), // current time
-        });
-
-        // Clear form
-        ReactDOM.findDOMNode(this.refs.textInput).value = '';
-    }
-
     updateSearch(evt) {
         this.setState({search: evt.target.value.substr(0, 20)});
     }

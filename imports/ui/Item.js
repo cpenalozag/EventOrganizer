@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 
 export default class Item extends Component{
 
-
-
     toggledChecked(){
-        Meteor.call('tasks.setChecked', this.props.task._id, !this.props.task.checked);
+        Meteor.call('items.setChecked', this.props.item._id, !this.props.item.checked);
     }
 
     render(){
@@ -13,11 +11,11 @@ export default class Item extends Component{
             <li>
                 <input type="checkbox"
                        readOnly
-                       checked={!!this.props.task.checked}
+                       checked={!!this.props.item.checked}
                        onClick={this.toggledChecked.bind(this)}/>
 
                 <span className="text">
-                    {this.props.task.text}</span>
+                    {this.props.item.text}</span>
             </li>
 
         );

@@ -3,7 +3,7 @@ import { Meteor } from "meteor/meteor";
 import { check } from "meteor/check";
 
 
-export const Items = new Mongo.Collection("items");
+export const Items = new Mongo.Collection("Items");
 
 if(Meteor.isServer){
     Meteor.publish("items", function itemsPublication(){

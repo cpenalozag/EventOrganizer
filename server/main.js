@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import '../imports/api/events.js';
-import '../imports/api/itemLists.js';
-import '../imports/api/participantLists.js';
+import '../imports/api/items.js';
+import '../imports/api/participants.js';
 import '../imports/api/userEventsList.js';
 import '../imports/api/comments.js';
 

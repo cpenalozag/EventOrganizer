@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Comments from "./Comments";
+import CommentList from "./CommentList";
+import ItemList from "./ItemList";
 
 
 // EventDetail component - represents the detail of a single event
@@ -9,7 +10,6 @@ class EventDetail extends Component {
         this.state = {
             event: props.location.event
         };
-        console.log(this.state.event);
     }
 
     render() {
@@ -22,10 +22,10 @@ class EventDetail extends Component {
                         <div className="col-md-10 ml-auto mr-auto">
                             <div className="row">
                                 <div className="col-md-6 col-sm-6">
-                                    <Comments/>
+                                    <CommentList id={this.state.event._id}/>
                                 </div>
                                 <div className="col-md-6 col-sm-6">
-                                    <h2 className="text-center title">Items</h2>
+
                                 </div>
                             </div>
                         </div>
