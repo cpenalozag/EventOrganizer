@@ -10,15 +10,15 @@ export default class Item extends Component{
 
     render(){
         return(
-            <li>
+            <ul className={!!this.props.item.checked? "tick" : "noTick" }>
                 <input type="checkbox"
                        readOnly
                        checked={!!this.props.item.checked}
                        onClick={this.toggledChecked.bind(this)}/>
 
                 <span className="text">
-                    {this.props.item.text}</span>
-            </li>
+                    <strong>{this.props.item.username}</strong>:{this.props.item.text}</span>
+            </ul>
 
         );
     }

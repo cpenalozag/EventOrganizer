@@ -2448,3 +2448,11 @@ form button:hover {
 .search-query:focus + button {
     z-index: 3;
 }
+
+.tick{
+    color: #3E5C9A;
+}
+.noTick{
+    color: red;
+}
+
