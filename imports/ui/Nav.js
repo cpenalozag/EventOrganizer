@@ -8,6 +8,39 @@ import Home from "./Home";
 import EventDetail from "./EventDetail";
 import UserEventList from "./UserEventList.js";
 
+/**
+ * <nav className="navbar navbar-expand-lg fixed-top nav-down">
+ <div className="container">
+ <div className="navbar-translate">
+ <div className="navbar-header">
+ <a className="navbar-brand">Eventirris</a>
+ </div>
+ <button className="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+ <span className="navbar-toggler-bar"></span>
+ <span className="navbar-toggler-bar"></span>
+ <span className="navbar-toggler-bar"></span>
+ </button>
+ </div>
+ <div className="collapse navbar-collapse">
+ <ul className="navbar-nav ml-auto">
+ <li className="nav-item">
+ <NavLink exact className="nav-link" to="/">Home</NavLink>
+ </li>
+ <li className="nav-item">
+ <NavLink exact className="nav-link" to="/events">Events</NavLink>
+ </li>
+ { this.props.currentUser ? <li className="nav-item">
+     <NavLink exact className="nav-link" to="/new">Create event</NavLink>
+ </li> :""}
+ { this.props.currentUser ? <li className="nav-item">
+     <NavLink exact className="nav-link" to="/myEvents">My events</NavLink>
+ </li> :""}
+ <li className="nav-item"><AccountsUIWrapper/></li>
+ </ul>
+ </div>
+ </div>
+ </nav>
+ */
 
 class Nav extends Component {
 
@@ -15,39 +48,31 @@ class Nav extends Component {
         return (
             <Router>
                 <div>
-                    <nav className="navbar navbar-expand-lg fixed-top nav-down">
-                        <div className="container">
-                            <div className="navbar-translate">
-                                <div className="navbar-header">
-                                    <a className="navbar-brand">Eventirris</a>
-                                </div>
-                                <button className="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-bar"></span>
-                                    <span className="navbar-toggler-bar"></span>
-                                    <span className="navbar-toggler-bar"></span>
-                                </button>
-                            </div>
-                            <div className="collapse navbar-collapse">
-                                <ul className="navbar-nav ml-auto">
-                                    <li className="nav-item">
-                                        <NavLink exact className="nav-link" to="/">Home</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink exact className="nav-link" to="/events">Events</NavLink>
-                                    </li>
-                                    { this.props.currentUser ? <li className="nav-item">
-                                        <NavLink exact className="nav-link" to="/new">Create event</NavLink>
-                                    </li> :""}
-                                    { this.props.currentUser ? <li className="nav-item">
-                                        <NavLink exact className="nav-link" to="/myEvents">My events</NavLink>
-                                    </li> :""}
-                                    <li className="nav-item"><AccountsUIWrapper/></li>
-                                </ul>
-                            </div>
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                        <a className="navbar-brand" href="#">Navbar</a>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav mr-auto">
+                                <li className="nav-item">
+                                    <NavLink exact className="nav-link" to="/">Home</NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink exact className="nav-link" to="/events">Events</NavLink>
+                                </li>
+                                { this.props.currentUser ? <li className="nav-item">
+                                    <NavLink exact className="nav-link" to="/new">Create event</NavLink>
+                                </li> :""}
+                                { this.props.currentUser ? <li className="nav-item">
+                                    <NavLink exact className="nav-link" to="/myEvents">My events</NavLink>
+                                </li> :""}
+                                <li className="nav-item"><AccountsUIWrapper/></li>
+                            </ul>
                         </div>
                     </nav>
 
-                    <br/>
                     <Route exact path="/events" render={()=><EventList eventsList={this.props.eventsList} /> } />
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/new" component={AddEvent}/>
