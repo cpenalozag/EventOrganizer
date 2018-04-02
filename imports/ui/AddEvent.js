@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import {Events} from "../api/events";
+import ReactDOM from "react-dom";
+import Item from "./Item";
 
 // Add event component
 export default class AddEvent extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            goSearchEv : false
-        };
+            goSearchEv: false,
+            items: []
+        }
+        ;
     }
 
-    goSearch(){
-        this.setState({goSearchEv:true});
+    goSearch() {
+        this.setState({goSearchEv: true});
     }
-    addEvent(e){
+
+    addEvent(e) {
         e.preventDefault();
         Events.insert({
             name: this.refs.name.value,
@@ -24,14 +29,50 @@ export default class AddEvent extends Component {
             description: this.refs.description.value,
             createdAt: new Date(),
         });
-        res = Events.find({},{limit:1, sort: {createdAt: -1}}).fetch();
+        res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
+
+        this.insertItems(res[0]._id);
         this.setState({goSearchEv:true});
     }
 
+    insertItems(res) {
+        let restItem = (this.state.items.map((item) => (
+            newItem = {
+                text: item.text,
+                idEvent: res
+            }
+        )));
+        restItem.map((item)=>{
+            Meteor.call('items.insert', item.text, item.idEvent);
+        })
+
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let listIt = this.state.items;
+
+        const textInsert = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+
+        let ItemObje = {
+            text: textInsert,
+            idEvent: 0
+        };
+        listIt.push(ItemObje);
+        this.setState({items: listIt});
+        ReactDOM.findDOMNode(this.refs.textInput).value = "";
+
+    }
+
+    renderItems() {
+        return this.state.items.map((item) => (
+            <Item key={item.text} item={item} add={true}/>
+        ));
+    }
+
     render() {
-        if(this.state.goSearchEv)
-        {
-            return(
+        if (this.state.goSearchEv) {
+            return (
                 <Redirect to={"/events"}/>
             );
         }
@@ -71,7 +112,17 @@ export default class AddEvent extends Component {
                                         </div>
                                         <div className="form-group">
                                             <h6>Date <span className="icon-danger">*</span></h6>
-                                            <input ref="date" className="form-control border-input" required id="date" type="date"/>
+                                            <input ref="date" className="form-control border-input" required id="date"
+                                                   type="date"/>
+                                        </div>
+                                        <div>
+                                            <h6>Items</h6>
+                                            <form onSubmit={this.handleSubmit.bind(this)} className="new-task">
+                                                <input className="form-control border-input" type="text" ref="textInput"
+                                                       placeholder="Type to add new item and hit enter"/>
+                                            </form>
+                                            <br/>
+                                            {this.renderItems()}
                                         </div>
                                     </div>
                                     <div className="col-md-4 col-sm-4">
@@ -79,7 +130,7 @@ export default class AddEvent extends Component {
                                             <h6>Description</h6>
                                             <textarea ref="description" className="form-control text-area" required
                                                       placeholder="Describe your event..."
-                                                      rows="6" maxLength="200"></textarea>
+                                                      rows="6" maxLength="200"/>
                                         </div>
 
                                     </div>
@@ -88,10 +139,14 @@ export default class AddEvent extends Component {
 
                                 <div className="row buttons-row">
                                     <div className="col-md-6 col-sm-6">
-                                        <button onClick={this.goSearch.bind(this)} className="btn btn-outline-danger btn-block btn-round">Cancel</button>
+                                        <button onClick={this.goSearch.bind(this)}
+                                                className="btn btn-outline-danger btn-block btn-round">Cancel
+                                        </button>
                                     </div>
                                     <div className="col-md-6 col-sm-6">
-                                        <button onClick={this.addEvent.bind(this)} className="btn btn-primary btn-block btn-round">Save &amp; Publish</button>
+                                        <button onClick={this.addEvent.bind(this)}
+                                                className="btn btn-primary btn-block btn-round">Save &amp; Publish
+                                        </button>
                                     </div>
                                 </div>
                             </form>

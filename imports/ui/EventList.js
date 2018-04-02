@@ -57,17 +57,6 @@ class EventList extends Component {
                                        onChange={this.updateSearch.bind(this)}/>
                             </div>
                             <br/>
-                            <div className="row">
-                                <div className="col-lg-3 col-md-3 col-sm-3">
-                                    <button onClick={this.filterDate.bind(this)}>
-                                        Filter by date
-                                    </button>
-                                </div>
-                            </div>
-                            {this.state.filterDate && <div className="row">
-                                <DatePicker/>
-                                <button onClick={this.printDate.bind(this)}>Search</button>
-                            </div>}
                             <br/>
                             <br/>
                             <div className="row">

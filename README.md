@@ -19,17 +19,20 @@ React
 ## Heroku Deployment
 
 
-### Installing
+## Local Deployment
 
 
 ```
-
+git clone https://github.com/cpenalozag/event-organizer/
+cd event-organizer
+meteor
+open localhost:3000
 ```
 
 ## Built With
 
 * [Meteor](https://www.meteor.com)
-* [React](https://maven.apache.org/)
+* [React](https://reactjs.org)
 * [Mongo](https://www.mongodb.com) 
 
 
@@ -39,14 +42,14 @@ We use [Github](https://github.com/) for versioning. For the versions available,
 
 ## Authors
 
-* **Camilo Montenegro** - *Back-Front Developer* - [Github profile](https://github.com/ca-montenegro)
+* **Camilo Montenegro** - *Full-stack Developer* - [Github profile](https://github.com/ca-montenegro)
 
-* **Carlos Peñaloza** - *Back-Front Developer* - [Github profile](https://github.com/cpenalozag)
+* **Carlos Peñaloza** - *Full-stack Developer* - [Github profile](https://github.com/cpenalozag)
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 

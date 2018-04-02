@@ -102,18 +102,6 @@ class UserEventList extends Component {
                                                        onChange={this.updateSearch.bind(this)}/>
                                             </div>
                                             <br/>
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-3 col-sm-3">
-                                                    <button onClick={this.filterDate.bind(this)}>
-                                                        Filter by date
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            {this.state.filterDate && <div className="row">
-                                                <DatePicker/>
-                                                <button onClick={this.printDate.bind(this)}>Search</button>
-                                            </div>}
-                                            <br/>
                                             <br/>
                                             <div className="row">
                                                 {this.renderEvents()}
@@ -128,7 +116,7 @@ class UserEventList extends Component {
                                             <div className="ml-auto mr-auto">
                                                 <button onClick={this.redirectEvents.bind(this)}
                                                         className="btn btn-danger btn-lg">
-                                                    Join event! <i className="fa fa-search"></i>
+                                                    Join event! <i className="fa fa-search"/>
                                                 </button>
                                             </div>
                                         </div>

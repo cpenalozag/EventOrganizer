@@ -11,7 +11,7 @@ class ItemList extends Component {
 
     renderItems() {
         return this.props.items.map((item) => (
-            <Item key={item._id} item={item}/>
+            <Item key={item._id} item={item} add = {false}/>
         ));
     }
 
