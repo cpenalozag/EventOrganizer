@@ -5,7 +5,7 @@ import {withTracker} from 'meteor/react-meteor-data';
 
 // Comments component
 class CommentList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -14,18 +14,14 @@ class CommentList extends Component {
 
         // Find the text field via the React ref
         const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-        Comments.insert({
-            text,
-            createdAt: new Date(),
-            eventId: this.props.id
-        });
+        Meteor.call('Comments.insert', text, this.props.id);
         // Clear form
         ReactDOM.findDOMNode(this.refs.textInput).value = '';
 
     }
 
     renderComments() {
-        return this.props.comments.filter(comment=>comment.eventId===this.props.id).map((comment) => (
+        return this.props.comments.filter(comment => comment.idEvent === this.props.id).map((comment) => (
             <Comment key={comment._id} comment={comment}/>
         ));
     }
@@ -46,9 +42,11 @@ class CommentList extends Component {
         );
     }
 }
+
 export default withTracker(() => {
+    Meteor.subscribe('Comments');
     return {
-        comments: Comments.find({}).fetch()
+        comments: Comments.find({},{sort: {createdAt: -1}}).fetch(),
     };
 })(CommentList);
 
@@ -57,11 +55,14 @@ class Comment extends Component {
         return (
             <div className="media">
                 <div className="media-body">
-                    <h5 className="media-heading">username</h5>
-                    <div className="pull-right">
-                        <h6 className="text-muted">
-                            {this.props.comment.createdAt.toDateString()}
-                        </h6>
+
+                    <div>
+                        <h5 className="media-heading">{this.props.comment.username}
+                        <span className="pull-right text-muted">
+                            {this.props.comment.createdAt.toDateString() + " " + this.props.comment.createdAt.getHours() + ":" +
+                            this.props.comment.createdAt.getMinutes() + ":" + this.props.comment.createdAt.getMinutes()}
+                        </span>
+                        </h5>
                     </div>
                     <p>{this.props.comment.text}</p>
                 </div>

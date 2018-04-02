@@ -89,11 +89,11 @@ class UserEventList extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-10 ml-auto mr-auto">
-                                    <h2 className="title">Tamo Ledy Pal Paly</h2>
+                                    <h2 className="title">My Events</h2>
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h3 className="subtittle">Your Events</h3>
+                                            <h3 className="subtittle">Event List</h3>
                                             <br/>
                                             <div className="input-group">
                                                 <input type="text" className="form-control search-query"
@@ -109,8 +109,8 @@ class UserEventList extends Component {
                                         </div> :
                                         <div>
                                             <h3>
-                                                Wow!! {Meteor.user().username} you don't have events. Go to events and
-                                                join one now.
+                                                It seems like you don't have any events {Meteor.user().username}. Go to events and
+                                                join one now!
                                             </h3>
                                             <br/>
                                             <div className="ml-auto mr-auto">

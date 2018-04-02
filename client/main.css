@@ -65,6 +65,9 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .media .media-heading {
     font-family: "Montserrat", "Helvetica", Arial, sans-serif;
 }
+.media .p{
+    overflow-wrap: break-word;
+}
 .title,
 .title a,
 .card-title,
@@ -84,6 +87,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .footer .footer-nav ul {
+    position: absolute;
     padding-left: 0;
     margin-bottom: 0;
 }
@@ -802,9 +806,9 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     margin-left: 0;
 }
 
-textarea.form-control {
+textarea.fohm-control {
     padding: 10px 18px;
-    height: auto;
+    min-height: 60vh;
 }
 
 .form-group {
@@ -868,6 +872,7 @@ textarea.form-control {
 }
 
 .section {
+    min-height: 100%;
     padding: 70px 0;
     position: relative;
     background-color: #FFFFFF;
@@ -1370,7 +1375,7 @@ body {
 
 
 textarea.form-control{
-    min-height: 37vh;
+    min-height: 45vh;
     resize: none;
 }
 .media-area-small p {
@@ -2651,6 +2656,7 @@ form button:hover {
     border: 1px solid #ccc;
     margin-top: 5%;
     padding: 2%;
+    z-index: 5;
 }
 
 hr {
