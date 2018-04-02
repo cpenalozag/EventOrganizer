@@ -898,7 +898,7 @@ textarea.fohm-control {
 }
 
 .section {
-    min-height: 85vh;
+    min-height: 90vh;
     padding: 12vh 0;
     position: relative;
     background-color: #FFFFFF;
@@ -2069,9 +2069,6 @@ body {
     margin-bottom: 10px;
 }
 
-.search .section-search {
-    min-height: 100vh;
-}
 .search .addon-xtreme {
     background-color: #FFFFFF;
     font-size: 2em;
@@ -2690,6 +2687,6 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
-    margin: 4em 0;
+    margin: 2em 0;
     padding: 0;
 }
