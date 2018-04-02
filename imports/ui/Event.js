@@ -7,7 +7,7 @@ export default class Event extends Component {
     render() {
         return (
             <div className="col-md-4">
-                <Link to={{pathname: `/events/${this.props.event._id._str}`, event:this.props.event }}>
+                <Link to={{pathname: `/events/${this.props.event._id}`, event:this.props.event }}>
                     <div className="card card-blog">
                         <div className="card-body">
                             <h6 className="redT"><strong>{this.props.event.category}</strong></h6>
