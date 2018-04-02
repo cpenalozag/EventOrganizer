@@ -33,9 +33,9 @@ class Home extends Component {
                             <div className="row">
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Eventirris</h1>
-                                    <h5>Descripcíon.</h5>
+                                    <h5>Descripción.</h5>
                                     <br/>
-                                        <div className="buttons">
+                                        <div className="buttons heart">
                                             <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
                                                 Search Events <i className="fa fa-search"></i>
                                             </button>
