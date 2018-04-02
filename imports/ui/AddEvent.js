@@ -21,7 +21,6 @@ export default class AddEvent extends Component {
             date: this.refs.date.value,
             location: this.refs.location.value,
             category: this.refs.category.value,
-            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSGqrm54cL72Gnm3kohh3H2zXMN7F43A1_iyKael3bjjwFBY2M",
             description: this.refs.description.value,
             createdAt: new Date(),
         });

@@ -1064,6 +1064,7 @@ body {
 }
 
 .page-header .container {
+    display: flex;
     color: #FFFFFF;
     position: relative;
     z-index: 3;
@@ -1798,23 +1799,7 @@ body {
 .link-danger:focus, .link-danger:active, .link-danger:hover {
     color: #f33816 !important;
 }
-.contact-us .navbar {
-    margin-bottom: 0px;
-}
-.contact-us .title {
-    margin-top: 40px;
-}
-.contact-us .contact .form-control {
-    margin-bottom: 20px;
-}
-.contact-us .visit {
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-.contact-us .big-map {
-    height: 300px;
-    width: 100%;
-}
+
 .contact-us .footer-demo {
     background-color: #f4f3ef;
 }
@@ -2456,3 +2441,21 @@ form button:hover {
     color: red;
 }
 
+.fixed {
+    position: fixed;
+    width: 25%;
+    min-height: 65vh;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    margin-top: 5%;
+    padding: 2%;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 4em 0;
+    padding: 0;
+}
