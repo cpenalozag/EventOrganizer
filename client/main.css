@@ -65,6 +65,9 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .media .media-heading {
     font-family: "Montserrat", "Helvetica", Arial, sans-serif;
 }
+.media .p{
+    overflow-wrap: break-word;
+}
 .title,
 .title a,
 .card-title,
@@ -84,6 +87,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 
 .footer .footer-nav ul {
+    position: absolute;
     padding-left: 0;
     margin-bottom: 0;
 }
@@ -573,8 +577,34 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 .btn-group.select {
     width: 100%;
 }
-
-
+.btn-primary {
+    background-color: #51cbce;
+    border-color: #51cbce;
+    color: #FFFFFF;
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+    background-color: #34b5b8;
+    color: #FFFFFF;
+    border-color: #34b5b8;
+}
+.btn-primary .caret {
+    border-top-color: #FFFFFF;
+}
+.btn-primary.btn-link {
+    color: #51cbce;
+}
+.btn-primary.btn-link:hover, .btn-primary.btn-link:focus, .btn-primary.btn-link:active, .btn-primary.btn-link.active, .open > .btn-primary.btn-link.dropdown-toggle {
+    background-color: transparent;
+    color: #34b5b8;
+}
+.btn-primary.btn-link .caret {
+    border-top-color: #51cbce;
+}
+.btn-primary .caret {
+    border-top-color: #FFFFFF;
+}
 .btn-round {
     border-radius: 30px;
 }
@@ -802,9 +832,9 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
     margin-left: 0;
 }
 
-textarea.form-control {
+textarea.fohm-control {
     padding: 10px 18px;
-    height: auto;
+    min-height: 60vh;
 }
 
 .form-group {
@@ -868,7 +898,8 @@ textarea.form-control {
 }
 
 .section {
-    padding: 70px 0;
+    min-height: 85vh;
+    padding: 12vh 0;
     position: relative;
     background-color: #FFFFFF;
 }
@@ -933,7 +964,7 @@ textarea.form-control {
     font-size: 18px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
-    padding: 0;
+    padding: 0 !important;
     background: #FFFFFF;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
@@ -1370,7 +1401,7 @@ body {
 
 
 textarea.form-control{
-    min-height: 37vh;
+    min-height: 45vh;
     resize: none;
 }
 .media-area-small p {
@@ -2646,11 +2677,12 @@ form button:hover {
 .fixed {
     position: fixed;
     width: 25%;
-    min-height: 65vh;
+    min-height: 55vh;
     background-color: #FFFFFF;
     border: 1px solid #ccc;
     margin-top: 5%;
     padding: 2%;
+    z-index: 5;
 }
 
 hr {

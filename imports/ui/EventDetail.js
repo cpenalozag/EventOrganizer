@@ -63,12 +63,12 @@ class EventDetail extends Component {
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
                             <div className="row">
-                                <div className="col-md-6 ">
+                                <div className="col-md-5 ">
                                     <div className="fixed">
                                         <Detail event={this.state.event}/>
                                     </div>
                                 </div>
-                                <div className="col-md-6 scrollit">
+                                <div className="col-md-7 scrollit">
                                     <ItemList items={this.props.items} eventId={this.state.event._id}/>
                                     <hr/>
                                     <CommentList id={this.state.event._id}/>
