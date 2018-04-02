@@ -23,7 +23,8 @@ Meteor.methods({
 
         Items.insert({
             text,
-            idEvent
+            idEvent,
+            username:Meteor.users.findOne(this.userId).username,
         });
     },
     'items.remove'(itemId){
