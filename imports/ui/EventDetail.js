@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import CommentList from "./CommentList";
 import ItemList from "./ItemList";
+import {userEventsList} from "../api/userEventsList";
+import {withTracker} from 'meteor/react-meteor-data';
+import {Items} from "../api/items.js";
 
 
 // EventDetail component - represents the detail of a single event
@@ -11,6 +14,8 @@ class EventDetail extends Component {
             event: props.location.event
         };
     }
+
+
 
     render() {
         return (
@@ -26,6 +31,7 @@ class EventDetail extends Component {
                                 </div>
                                 <div className="col-md-6 col-sm-6">
 
+                                    <ItemList items = {this.props.items} eventId = {this.state.event._id}/>
                                 </div>
                             </div>
                         </div>
@@ -56,4 +62,11 @@ class Detail extends Component {
     }
 }
 
-export default EventDetail;
+//export default EventDetail;
+
+export default withTracker((props) => {
+    Meteor.subscribe("items");
+    return {
+        items: Items.find({idEvent:props.location.event._id}).fetch(),
+    };
+})(EventDetail);

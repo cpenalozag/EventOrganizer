@@ -7,16 +7,12 @@ export const Items = new Mongo.Collection("Items");
 
 if(Meteor.isServer){
     Meteor.publish("items", function itemsPublication(){
-        return Items.find({
-            $or :[
-                {owner:this.userId},
-            ],
-        });
+        return Items.find();
     });
 }
 
 Meteor.methods({
-    "items.insert"(text){
+    "items.insert"(text,idEvent){
         check(text, String);
 
         //Make sure the user is logged in before inserting a item
@@ -27,7 +23,7 @@ Meteor.methods({
 
         Items.insert({
             text,
-            createdAt: new Date(),
+            idEvent
         });
     },
     'items.remove'(itemId){
@@ -39,7 +35,7 @@ Meteor.methods({
         Items.remove(itemId);
     },
     "items.setChecked"(itemId, setChecked){
-        check(itemId, String);
+        //check(itemId, String);
         check(setChecked, Boolean);
 
         Items.update(itemId, {$set:{checked:setChecked}});

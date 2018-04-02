@@ -3,8 +3,10 @@ import React, {Component} from 'react';
 export default class Item extends Component{
 
     toggledChecked(){
-        Meteor.call('items.setChecked', this.props.item._id, !this.props.item.checked);
+        Meteor.call("items.setChecked", this.props.item._id, !this.props.item.checked);
     }
+
+
 
     render(){
         return(
