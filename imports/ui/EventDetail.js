@@ -11,10 +11,49 @@ class EventDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            event: props.location.event
+            event: props.location.event,
+            showAddEvent:true
         };
     }
 
+    addEvent() {
+        console.log(this.props);
+        if (this.props.userEvents === undefined) {
+            userEventsList.insert({
+                _idUser: Meteor.userId(),
+                _ListEventsId: [
+                    this.state.event._id._str
+                ]
+            })
+        }
+        else {
+            const userEv = this.props.userEvents._ListEventsId;
+            const exists = userEv.filter((ev) => {
+                return ev === this.state.event._id;
+            })
+            if (!exists.length>0) {
+                userEv.push(this.state.event._id);
+                const newEv = {
+                    _idUser: Meteor.userId(),
+                    _ListEventsId: userEv
+                }
+                res = userEventsList.update({_id: this.props.userEvents._id},
+                    {
+                        _idUser: Meteor.userId(),
+                        _ListEventsId: userEv
+                    },
+                    {upsert: true}
+                )
+                console.log(res);
+                this.setState({showAddEvent:false});
+            }
+            else
+                this.setState({showAddEvent:false});
+            window.alert("Now you are part of the event");
+        }
+
+
+    }
 
     render() {
         return (
@@ -33,6 +72,12 @@ class EventDetail extends Component {
                                     <ItemList items={this.props.items} eventId={this.state.event._id}/>
                                     <hr/>
                                     <CommentList id={this.state.event._id}/>
+                                    <hr/>
+                                    {Meteor.userId() && this.state.showAddEvent ? <div className="buttons">
+                                        <button onClick={this.addEvent.bind(this)} className="btn btn-danger btn-lg">
+                                            Add to my events <i className="fa fa-search"></i>
+                                        </button>
+                                    </div> : ""}
                                 </div>
                             </div>
                         </div>
@@ -65,7 +110,9 @@ class Detail extends Component {
 
 export default withTracker((props) => {
     Meteor.subscribe("items");
+    const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
     return {
         items: Items.find({idEvent: props.location.event._id}).fetch(),
+        userEvents,
     };
 })(EventDetail);

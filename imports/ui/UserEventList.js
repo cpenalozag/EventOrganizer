@@ -45,26 +45,21 @@ class UserEventList extends Component {
         });
     }
 
-    printDate() {
-        console.log(this.props);
-    }
-
     renderEvents() {
         let idEvents = this.props.userEvents._ListEventsId;
 
         let filtered = [];
-        console.log(this.props);
         for (let i = 0; i < idEvents.length; i++) {
             filtered.push(this.props.eventsList.filter((event) => {
-                return event._id.equals(idEvents[i]);
+                return event._id === (idEvents[i]);
             }));
         }
-        console.log(filtered);
 
         const filteredEvents = filtered.filter(
             (event) => {
-                console.log(event);
-                return event[0].name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+
+                if (event[0] !== undefined)
+                    return event[0].name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
         return filteredEvents ? filteredEvents.map((event) => (
             <Event key={event[0]._id} event={event[0]}/>
@@ -89,11 +84,11 @@ class UserEventList extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-10 ml-auto mr-auto">
-                                    <h2 className="title">Tamo Ledy Pal Paly</h2>
+                                    <h2 className="title">My events</h2>
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h3 className="subtittle">Your Events</h3>
+                                            <h3 className="subtittle">Upcoming Events</h3>
                                             <br/>
                                             <div className="input-group">
                                                 <input type="text" className="form-control search-query"
