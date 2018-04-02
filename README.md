@@ -42,9 +42,9 @@ We use [Github](https://github.com/) for versioning. For the versions available,
 
 ## Authors
 
-* **Camilo Montenegro** - *Back-Front Developer* - [Github profile](https://github.com/ca-montenegro)
+* **Camilo Montenegro** - *Full-stack Developer* - [Github profile](https://github.com/ca-montenegro)
 
-* **Carlos Peñaloza** - *Back-Front Developer* - [Github profile](https://github.com/cpenalozag)
+* **Carlos Peñaloza** - *Full-stack Developer* - [Github profile](https://github.com/cpenalozag)
 
 
 ## License
