@@ -44,22 +44,6 @@ export default class AddEvent extends Component {
                             <h2 className="title">Create an Event</h2>
                             <form>
                                 <div className="row">
-                                    <div className="col-md-4 col-sm-4">
-                                        <h6>Event Image</h6>
-                                        <div className="fileinput fileinput-new text-center" data-provides="fileinput">
-                                            <div className="medium-img fileinput-new thumbnail img-no-padding">
-                                                <img src="images/Placeholder.png" alt=""/>
-                                            </div>
-                                            <div className="fileinput-preview fileinput-exists thumbnail img-no-padding"></div>
-                                            <div>
-                                                <input ref="image" name="image" type="file"/>
-                                                <a href="#paper-kit" className="btn btn-link btn-danger fileinput-exists"
-                                                   data-dismiss="fileinput"> Remove</a>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
                                     <div className="col-md-8 col-sm-8">
                                         <div className="form-group">
                                             <h6>Name <span className="icon-danger">*</span></h6>
@@ -91,13 +75,14 @@ export default class AddEvent extends Component {
                                             <input ref="date" className="form-control border-input" required id="date" type="date"/>
                                         </div>
                                     </div>
-                                    <div className="col-md-12 col-sm-12">
+                                    <div className="col-md-4 col-sm-4">
                                         <div className="form-group">
                                             <h6>Description</h6>
-                                            <textarea ref="description" className="form-control textarea-limited" required
+                                            <textarea ref="description" className="form-control text-area" required
                                                       placeholder="Describe your event..."
                                                       rows="6" maxLength="200"></textarea>
                                         </div>
+
                                     </div>
                                 </div>
 
