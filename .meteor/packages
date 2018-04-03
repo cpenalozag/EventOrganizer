@@ -21,8 +21,9 @@ autopublish@1.0.7             # Publish all data to the clients (for prototyping
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
 react-meteor-data
 
+meteorhacks:inject-initial
 accounts-password
 accounts-ui-unstyled
 aldeed:simple-schema
 aldeed:collection2
-ciwolsey:superagent
+
