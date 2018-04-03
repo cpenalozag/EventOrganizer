@@ -18,7 +18,7 @@ React
 
 ## Heroku Deployment
 
-(Event-Manager web app)[https://event-manager-webapp.herokuapp.com]
+[Event-Manager web app](https://event-manager-webapp.herokuapp.com)
 
 ## Local Deployment
 
