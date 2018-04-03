@@ -34,10 +34,9 @@ class Home extends Component {
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Event Manager</h1>
                                     <div className="p6">
-                                        <p align="justify">With Event manager you can meet new people, organize events and live new
-                                            experiences.
-                                            Browse events in the event tab. Sign up to join events: comment and become part
-                                            of the planning process!
+                                        <p align="justify">With Event manager you can meet new people, organize events
+                                            and live new experiences. Browse events in the event tab. Sign up to join
+                                            events: comment and become part of the planning process!
                                         </p>
                                     </div>
 
