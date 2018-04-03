@@ -41,7 +41,7 @@ class EventList extends Component {
                             <h2 className="title">Search upcoming events here</h2>
                             <br/>
                             <div className="input-group">
-                                <input type="text" className="form-control search-query"
+                                <input type="text" className="form-control border-input"
                                        placeholder="Try: Torneo cacho uniandes"
                                        value={this.state.search}
                                        onChange={this.updateSearch.bind(this)}/>

@@ -33,11 +33,14 @@ class Home extends Component {
                             <div className="row">
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Event Manager</h1>
-                                    <p6 align="justify">With Event manager you can meet new people, organize events and live new
-                                        experiences.
-                                        Browse events in the event tab. Sign up to join events: comment and become part
-                                        of the planning process!</p6>
-                                    <br/>
+                                    <div className="p6">
+                                        <p align="justify">With Event manager you can meet new people, organize events and live new
+                                            experiences.
+                                            Browse events in the event tab. Sign up to join events: comment and become part
+                                            of the planning process!
+                                        </p>
+                                    </div>
+
                                     <br/>
                                     <div className="buttons">
                                         <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
@@ -64,7 +67,7 @@ class Home extends Component {
                                     </div>
                                     <div className="description">
                                         <h4 className="info-title">Register</h4>
-                                        <p className="description">Sign up now and start new experiences!</p>
+                                        <p className="description">Sign up now and start enjoying new experiences!</p>
                                     </div>
                                 </div>
                             </div>
@@ -74,9 +77,9 @@ class Home extends Component {
                                         <i className="fa fa-plus-circle"/>
                                     </div>
                                     <div className="description">
-                                        <h4 className="info-title">Add new event</h4>
-                                        <p className="description">If you are log in, create your event in which friends
-                                            and people can participate!</p>
+                                        <h4 className="info-title">Add new events</h4>
+                                        <p className="description">Create events and invite your friends
+                                            or let other people participate!</p>
                                     </div>
                                 </div>
                             </div>
@@ -86,9 +89,9 @@ class Home extends Component {
                                         <i className="fa fa-search"/>
                                     </div>
                                     <div className="description">
-                                        <h4 className="info-title">Search new events to participate</h4>
-                                        <p>Search any existing event and join now, you can join by helping with the
-                                            items list!</p>
+                                        <h4 className="info-title">Join events</h4>
+                                        <p>Browse the public events and join now! You can meet others through comments
+                                            and help with the item check list!</p>
                                     </div>
                                 </div>
                             </div>
@@ -98,8 +101,8 @@ class Home extends Component {
                                         <i className="fa fa-list-ul"/>
                                     </div>
                                     <div className="description">
-                                        <h4 className="info-title">See the events that you make part</h4>
-                                        <p>Use the tab "My Events" to see which upcoming events you made part.</p>
+                                        <h4 className="info-title">Browse your events</h4>
+                                        <p>Check the My Events tab to see the upcoming events which you are part of</p>
                                     </div>
                                 </div>
                             </div>

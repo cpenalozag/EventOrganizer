@@ -15,7 +15,7 @@ export default class Event extends Component {
                                 {this.props.event.name}
                             </h5>
                             <p className="card-description">
-                                {this.props.event.description.substring(0,70)+"..."} <br/>
+                                {this.props.event.description.substring(0,100)+"..."} <br/>
                             </p>
                             <hr/>
                             <div className="card-footer text-center">

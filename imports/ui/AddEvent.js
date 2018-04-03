@@ -140,7 +140,7 @@ export default class AddEvent extends Component {
                                             <h6>Description</h6>
                                             <textarea ref="description" className="form-control text-area" required
                                                       placeholder="Describe your event..."
-                                                      rows="6" maxLength="200"/>
+                                                      rows="6" maxLength="400"/>
                                         </div>
 
                                     </div>
