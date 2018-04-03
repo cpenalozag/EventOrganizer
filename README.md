@@ -34,6 +34,7 @@ open localhost:3000
 
 * [Meteor](https://www.meteor.com)
 * [React](https://reactjs.org)
+* [Blaze](https://www.blazeui.com)
 * [Mongo](https://www.mongodb.com) 
 
 
@@ -43,14 +44,14 @@ We use [Github](https://github.com/) for versioning. For the versions available,
 
 ## Authors
 
-* **Camilo Montenegro** - *Full-stack Developer* - [Github profile](https://github.com/ca-montenegro)
+* **[Camilo Montenegro](https://ca-montenegro.github.io/)** - *Full-stack Developer* - [Github profile](https://github.com/ca-montenegro)
 
-* **Carlos Peñaloza** - *Full-stack Developer* - [Github profile](https://github.com/cpenalozag)
+* **[Carlos Peñaloza](https://cpenalozag.github.io/)** - *Full-stack Developer* - [Github profile](https://github.com/cpenalozag)
 
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## Acknowledgments
+ 
 
