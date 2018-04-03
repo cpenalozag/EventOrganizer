@@ -87,7 +87,7 @@ class UserEventList extends Component {
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h5 className="subtittle">Check your subscribe events</h5>
+                                            <h5 className="subtittle">Check the events you are subscribed to</h5>
                                             <br/>
                                             <div className="input-group">
                                                 <input type="text" className="form-control search-query"
