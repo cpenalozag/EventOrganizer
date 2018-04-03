@@ -32,7 +32,7 @@ export default class AddEvent extends Component {
         res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
         this.insertItems(res[0]._id);
-        this.setState({goSearchEv:true});
+        this.setState({goSearchEv: true});
     }
 
     insertItems(res) {
@@ -42,7 +42,7 @@ export default class AddEvent extends Component {
                 idEvent: res
             }
         )));
-        restItem.map((item)=>{
+        restItem.map((item) => {
             Meteor.call('items.insert', item.text, item.idEvent);
         })
 
@@ -117,10 +117,20 @@ export default class AddEvent extends Component {
                                         </div>
                                         <div>
                                             <h6>Items</h6>
-                                            <form onSubmit={this.handleSubmit.bind(this)} className="new-task">
-                                                <input className="form-control border-input" type="text" ref="textInput"
-                                                       placeholder="Type to add new item and hit enter"/>
-                                            </form>
+                                            <div className="row buttons-row">
+                                                <div className="col-md-9 col-sm-9">
+                                                    <form onSubmit={this.handleSubmit.bind(this)} className="new-task">
+                                                        <input className="form-control border-input" type="text"
+                                                               ref="textInput"
+                                                               placeholder="Type to add new item and hit enter"/>
+                                                    </form>
+                                                </div>
+                                                <div className="col-md-3 col-sm-3">
+                                                    <button onClick={this.handleSubmit.bind(this)}
+                                                            className="btn btn-outline-danger btn-block btn-round">Add
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <br/>
                                             {this.renderItems()}
                                         </div>

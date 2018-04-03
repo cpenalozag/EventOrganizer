@@ -13,15 +13,14 @@ export default class Item extends Component {
                 {!this.props.add ?
                     <ul className={!!this.props.item.checked ? "tick" : "noTick"}>
                         {Meteor.userId() ?
-                            <input className="form-check-label" type="checkbox" readOnly
+                            <input className="form-check-label " type="checkbox" readOnly
                                    checked={!!this.props.item.checked} onClick={this.toggledChecked.bind(this)}/> : ""
                         }
 
                         <span className="text">
-                    <strong>{this.props.item.username}</strong> : {this.props.item.text}</span>
+                    <strong>  {this.props.item.username}</strong>:  {this.props.item.text}</span>
                     </ul> :
-
-                    <ul className="tick">
+                    <ul className="notick">
                         <span className="text">
                     {this.props.item.text}</span>
                     </ul>}

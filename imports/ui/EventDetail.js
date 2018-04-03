@@ -18,7 +18,7 @@ class EventDetail extends Component {
     }
 
     addEvent() {
-        console.log(this.props);
+
         if (this.props.userEvents === undefined) {
             userEventsList.insert({
                 _idUser: Meteor.userId(),
@@ -45,7 +45,7 @@ class EventDetail extends Component {
                     },
                     {upsert: true}
                 )
-                console.log(res);
+
                 this.setState({showAddEvent:false});
             }
             else
@@ -57,7 +57,7 @@ class EventDetail extends Component {
     }
 
     exist(){
-        console.log(entra)
+
         this.setState({showAddEvent:false});
     }
 

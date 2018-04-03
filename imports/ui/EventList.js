@@ -22,16 +22,6 @@ class EventList extends Component {
         this.setState({search: evt.target.value.substr(0, 20)});
     }
 
-    filterDate() {
-        this.setState({
-            filterDate: !this.state.filterDate,
-        });
-    }
-
-    printDate(){
-        console.log(this.props);
-    }
-
     renderEvents() {
         const filteredEvents = this.props.eventsList.filter(
             (event) => {

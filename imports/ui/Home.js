@@ -33,16 +33,15 @@ class Home extends Component {
                             <div className="row">
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Event Manager</h1>
-                                    <h5 align="justify">Event Manager is a meeting, event, and experience application
-                                        manager.
-                                        Event Manager offers web-based solutions to planners in terms of
-                                        creating, items planning, comments review and more. Event Manager solutions optimize the
-                                        entire event management value chain and have enabled users to manage meetings
-                                        and events.</h5>
+                                    <p6 align="justify">With Event manager you can meet new people, organize events and live new
+                                        experiences.
+                                        Browse events in the event tab. Sign up to join events: comment and become part
+                                        of the planning process!</p6>
+                                    <br/>
                                     <br/>
                                     <div className="buttons">
                                         <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
-                                            Search Events <i className="fa fa-search"></i>
+                                            Search Events <i className="fa fa-search"/>
                                         </button>
                                     </div>
                                 </div>

@@ -11,16 +11,16 @@ class Foot extends Component {
                         <div className="col-md-6 col-sm-12">
                             <nav className="footer-nav">
                                 <ul>
-                                    <li><a href="https://cpenalozag.github.io/">Carlos</a></li>
-                                    <li><a href="https://ca-montenegro.github.io/">Camilo</a></li>
+                                    <li><a target="_blank" href="https://cpenalozag.github.io/">Carlos</a></li>
+                                    <li><a target="_blank" href="https://ca-montenegro.github.io/">Camilo</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <div className="col-md-6 col-sm-12">
                             <div className="credits ml-auto">
 				<span className="copyright">
-					© <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
-                    Made with <i className="fa fa-heart heart"></i> by Carlos Penaloza &amp; Camilo Montenegro
+					© <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"/>
+                    Made with <i className="fa fa-heart heart"/> by Carlos Penaloza &amp; Camilo Montenegro
 				</span>
                             </div>
                         </div>
