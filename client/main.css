@@ -2694,3 +2694,11 @@ hr {
     margin: 2em 0;
     padding: 0;
 }
+
+.h-80 {
+    height: 90vh!important;
+    min-height: 550px !important;
+    max-height: 900px !important;
+    position: relative !important;
+    z-index: 1 !important;
+}

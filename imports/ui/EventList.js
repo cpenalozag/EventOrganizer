@@ -48,11 +48,11 @@ class EventList extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <h2 className="title">Search events here</h2>
+                            <h2 className="title">Search upcoming events here</h2>
                             <br/>
                             <div className="input-group">
                                 <input type="text" className="form-control search-query"
-                                       placeholder="Try: Torneo cachito uniandes"
+                                       placeholder="Try: Torneo cacho uniandes"
                                        value={this.state.search}
                                        onChange={this.updateSearch.bind(this)}/>
                             </div>

@@ -26,16 +26,17 @@ class Home extends Component {
         }
         return (
             <div className="header-2">
-                <div className="page-header">
+                <div className="page-header h-80">
                     <div className="filter"></div>
                     <div className="content-center">
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-6 text-left">
                                     <h1 className="title">Event Manager</h1>
-                                    <h5>Event Manager is a meeting, event, and experience application.
-                                        Event Manager offers web-based solutions to gente del común planners in terms of creating,
-                                        items planning, comments review and more. Event Manager solutions optimize the
+                                    <h5 align="justify">Event Manager is a meeting, event, and experience application
+                                        manager.
+                                        Event Manager offers web-based solutions to planners in terms of
+                                        creating, items planning, comments review and more. Event Manager solutions optimize the
                                         entire event management value chain and have enabled users to manage meetings
                                         and events.</h5>
                                     <br/>
@@ -49,39 +50,58 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="container">
-
-                    <div className="row">
-                        <div className="col-md-4">
-                            <div className="info">
-                                <div className="icon icon-danger">
-                                    <i className="fa fa-calendar"/>
-                                </div>
-                                <div className="description">
-                                    <h4 className="info-title">Plan events</h4>
-                                    <p className="description">Easily manage the planning process of your event!</p>
-                                </div>
+                <div className="section-gray">
+                    <div className="container">
+                        <div className="row">
+                            <div className="title content-center col-lg-12 col-md-12 text-center">
+                                <h2>About the app</h2>
                             </div>
                         </div>
-                        <div className="col-md-4">
-                            <div className="info">
-                                <div className="icon icon-danger">
-                                    <i className="fa fa-users"/>
-                                </div>
-                                <div className="description">
-                                    <h4 className="info-title">Make item list with your friends</h4>
-                                    <p>Invite your friends to events and join your friends at their events!.</p>
+                        <div className="row">
+                            <div className="col-md-3">
+                                <div className="info">
+                                    <div className="icon icon-danger">
+                                        <i className="fa fa-user-plus"/>
+                                    </div>
+                                    <div className="description">
+                                        <h4 className="info-title">Register</h4>
+                                        <p className="description">Sign up now and start new experiences!</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-md-4">
-                            <div className="info">
-                                <div className="icon icon-danger">
-                                    <i className="fa fa-flask"/>
+                            <div className="col-md-3">
+                                <div className="info">
+                                    <div className="icon icon-danger">
+                                        <i className="fa fa-plus-circle"/>
+                                    </div>
+                                    <div className="description">
+                                        <h4 className="info-title">Add new event</h4>
+                                        <p className="description">If you are log in, create your event in which friends
+                                            and people can participate!</p>
+                                    </div>
                                 </div>
-                                <div className="description">
-                                    <h4 className="info-title">Enjoy new experiences</h4>
-                                    <p>Join public events to meet people or have fun doing different activities!</p>
+                            </div>
+                            <div className="col-md-3">
+                                <div className="info">
+                                    <div className="icon icon-danger">
+                                        <i className="fa fa-search"/>
+                                    </div>
+                                    <div className="description">
+                                        <h4 className="info-title">Search new events to participate</h4>
+                                        <p>Search any existing event and join now, you can join by helping with the
+                                            items list!</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3">
+                                <div className="info">
+                                    <div className="icon icon-danger">
+                                        <i className="fa fa-list-ul"/>
+                                    </div>
+                                    <div className="description">
+                                        <h4 className="info-title">See the events that you make part</h4>
+                                        <p>Use the tab "My Events" to see which upcoming events you made part.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
