@@ -42,6 +42,7 @@ class EventList extends Component {
                             <br/>
                             <div className="input-group">
                                 <input type="text" className="form-control border-input"
+            //buena idea poner ejemplo de nombre de eventos y que se filtre a medida que se agregan letras
                                        placeholder="Try: Torneo cacho uniandes"
                                        value={this.state.search}
                                        onChange={this.updateSearch.bind(this)}/>
