@@ -62,14 +62,6 @@ class EventDetail extends Component {
     }
 
     render() {
-        console.log(this.props);
-        const userEv = this.props.userEvents._ListEventsId;
-        const exists = userEv.filter((ev) => {
-            return ev === this.state.event._id;
-        })
-        console.log(exists);
-        if(exists!==[])
-            this.exist.bind(this);
         return (
 
             <div className="blog-2 section section-white">
@@ -87,7 +79,7 @@ class EventDetail extends Component {
                                     <hr/>
                                     <CommentList comments={this.props.comments} id={this.state.event._id}/>
                                     <hr/>
-                                    {this.state.showAddEvent ? <div className="buttons">
+                                    {Meteor.userId()&&this.state.showAddEvent ? <div className="buttons">
                                         <button onClick={this.addEvent.bind(this)} className="btn btn-danger btn-lg">
                                             Add to my events <i className="fa fa-search"/>
                                         </button>

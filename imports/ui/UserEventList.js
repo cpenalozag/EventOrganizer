@@ -48,13 +48,14 @@ class UserEventList extends Component {
     renderEvents() {
         let idEvents = this.props.userEvents._ListEventsId;
 
+        console.log(idEvents);
         let filtered = [];
         for (let i = 0; i < idEvents.length; i++) {
             filtered.push(this.props.eventsList.filter((event) => {
                 return event._id === (idEvents[i]);
             }));
         }
-
+        console.log(filtered);
         const filteredEvents = filtered.filter(
             (event) => {
 
