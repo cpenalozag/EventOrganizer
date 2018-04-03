@@ -90,6 +90,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     position: absolute;
     padding-left: 0;
     margin-bottom: 0;
+    bottom:0;
 }
 
 
@@ -139,6 +140,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 .footer {
     background-color: #FFFFFF;
     line-height: 36px;
+    bottom:0;
 }
 .footer.footer-black h4 {
     color: #FFFFFF;
@@ -2187,6 +2189,7 @@ body {
 
 .section-black {
     background-color: #333;
+    bottom:0;
 }
 
 #layerHover {

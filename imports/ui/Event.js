@@ -20,7 +20,7 @@ export default class Event extends Component {
                             <hr/>
                             <div className="card-footer text-center">
                                 <div className="author">
-                                    <i className="fa fa-calendar redT"></i>
+                                    <i className="fa fa-calendar redT"/>
                                     <span> {this.props.event.date}</span>
                                 </div>
 
