@@ -1623,6 +1623,7 @@ textarea.form-control{
     border-bottom-right-radius: 0px;
 }
 .card.card-blog {
+    min-height: 40vh;
     margin-top: 5px;
 }
 .card.card-blog .btn {

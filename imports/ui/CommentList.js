@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Comments} from "../api/comments";
 import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
 
@@ -31,11 +30,10 @@ class CommentList extends Component {
             <div className="comments media-area">
                 <h2 className="text-center title">Comments</h2>
                 <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
-                    <input className="form-control border-input"
-                           type="text"
-                           ref="textInput"
-                           placeholder="Type to add a new comment"
-                    />
+                    {Meteor.userId() ?
+                        <input className="form-control border-input" type="text" ref="textInput" placeholder="Type to add a new comment"/>:
+                        <input className="form-control border-input" type="text" ref="textInput" disabled placeholder="You need to log in to write a comment!"/>
+                    }
                 </form>
                 {this.renderComments()}
             </div>
@@ -43,12 +41,7 @@ class CommentList extends Component {
     }
 }
 
-export default withTracker(() => {
-    Meteor.subscribe('Comments');
-    return {
-        comments: Comments.find({},{sort: {createdAt: -1}}).fetch(),
-    };
-})(CommentList);
+export default CommentList;
 
 class Comment extends Component {
     render() {
