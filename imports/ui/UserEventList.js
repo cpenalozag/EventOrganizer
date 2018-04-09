@@ -20,6 +20,8 @@ class UserEventList extends Component {
             eventsBool: true
         };
     }
+    
+    //El nombre de usuario se ve en el texto y le da personalizacion
 
     handleSubmit(event) {
         event.preventDefault();
