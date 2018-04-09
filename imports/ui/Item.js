@@ -6,7 +6,7 @@ export default class Item extends Component {
         Meteor.call("items.setChecked", this.props.item._id, !this.props.item.checked);
     }
 
-
+    //Aca tambien se le podria agregar un ejemplo de un item, no me queda claro que tipo de items se pueden agregar
     render() {
         return (
             <div>
