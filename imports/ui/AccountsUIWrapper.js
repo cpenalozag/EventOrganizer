@@ -4,6 +4,8 @@ import { Template } from 'meteor/templating';
 import { Blaze } from 'meteor/blaze';
 
 export default class AccountsUIWrapper extends Component {
+    
+    //En el template, el label tanto de username como password se ven como los placeholders de cada campo por el underline que tienen
 
     componentDidMount() {
         // Use Meteor Blaze to render login buttons
