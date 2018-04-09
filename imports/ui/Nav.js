@@ -24,6 +24,7 @@ class Nav extends Component {
 
                                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                         <ul className="navbar-nav ml-auto">
+                       //Verificar que este logueado el usuario para agregar botones al nav le da personalizacion
 
                                             <li className="nav-item">
                                                 <NavLink exact className="nav-link" to="/">Home</NavLink>
