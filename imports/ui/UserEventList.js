@@ -87,15 +87,15 @@ class UserEventList extends Component {
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h5 className="subtittle">Check your subscribe events</h5>
+                                            <h5 className="subtittle">Upcoming events</h5>
                                             <br/>
                                             <div className="input-group">
-                                                <input type="text" className="form-control search-query"
+                                                <input type="text" className="form-control border-input sb"
                                                        placeholder="Try: Torneo cachito uniandes"
                                                        value={this.state.search}
                                                        onChange={this.updateSearch.bind(this)}/>
                                             </div>
-                                            <br/>
+                                            <hr/>
                                             <br/>
                                             <div className="row">
                                                 {this.renderEvents()}

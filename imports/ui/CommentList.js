@@ -53,7 +53,7 @@ class Comment extends Component {
                         <h5 className="media-heading">{this.props.comment.username}
                         <span className="pull-right text-muted">
                             {this.props.comment.createdAt.toDateString() + " " + this.props.comment.createdAt.getHours() + ":" +
-                            this.props.comment.createdAt.getMinutes() + ":" + this.props.comment.createdAt.getMinutes()}
+                            this.props.comment.createdAt.getMinutes() + ":" + this.props.comment.createdAt.getSeconds()}
                         </span>
                         </h5>
                     </div>
