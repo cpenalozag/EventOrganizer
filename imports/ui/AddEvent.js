@@ -5,7 +5,6 @@ import ReactDOM from "react-dom";
 import Item from "./Item";
 
 
-
 // Add event component
 export default class AddEvent extends Component {
     constructor(props) {
@@ -28,7 +27,7 @@ export default class AddEvent extends Component {
         const location = this.refs.location.value;
         const category = this.refs.category.value;
         const description = this.refs.description.value;
-        Meteor.call("events.insert",name,date,location,category, description)
+        Meteor.call("events.insert", name, date, location, category, description)
         const res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
         this.insertItems(res[0]._id);
@@ -66,7 +65,10 @@ export default class AddEvent extends Component {
 
     renderItems() {
         return this.state.items.map((item) => (
-            <Item key={item.text} item={item} add={true}/>
+            <div>
+                <Item key={item.text} item={item} add={true}/>
+                <hr/>
+            </div>
         ));
     }
 
@@ -115,14 +117,12 @@ export default class AddEvent extends Component {
                                                type="date"/>
                                     </div>
                                     <div>
-                                        <h6>Items</h6>
+                                        <h6>Checklist</h6>
                                         <div className="row buttons-row">
                                             <div className="col-md-9 col-sm-9">
-                                                <form onSubmit={this.handleSubmit.bind(this)} className="new-task">
-                                                    <input className="form-control border-input" type="text"
-                                                           ref="textInput"
-                                                           placeholder="Type to add new item and hit enter"/>
-                                                </form>
+                                                <input className="form-control border-input" type="text"
+                                                       ref="textInput"
+                                                       placeholder="Type to add new item and hit enter"/>
                                             </div>
                                             <div className="col-md-3 col-sm-3">
                                                 <button onClick={this.handleSubmit.bind(this)}

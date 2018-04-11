@@ -8,7 +8,7 @@ export default class Event extends Component {
         return (
             <div className="col-md-4">
                 <Link to={{pathname: `/events/${this.props.event._id}`, state:{event:this.props.event} }}>
-                    <div className="card card-blog">
+                    <div className="card card-blog event">
                         <div className="card-body">
                             <h6 className="redT"><strong>{this.props.event.category}</strong></h6>
                             <h5 className="card-title">

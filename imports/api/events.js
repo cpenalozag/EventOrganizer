@@ -4,12 +4,15 @@ import {Meteor} from "meteor/meteor";
 import {Comments} from "./comments";
 import {check} from "meteor/check";
 
-
 export const Events = new Mongo.Collection('events');
 
 if(Meteor.isServer){
-    Meteor.publish("events", function eventsPublication(){
-        return Events.find();
+    Meteor.publish("Events", (limit, startAt) => {
+        new SimpleSchema({
+            limit:{type:Number},
+            startAt:{type:Date}
+        }).validate({limit,startAt});
+        return Events.find({createdAt: {$lte: startAt}}, {sort: {createdAt: -1}, limit: limit});
     });
 }
 
@@ -22,7 +25,6 @@ Meteor.methods({
         check(category, String);
         check(description, String);
 
-        //Make sure the user is logged in before inserting a comment
         if(!this.userId){
             throw new Meteor.Error("Not-authorized");
         }

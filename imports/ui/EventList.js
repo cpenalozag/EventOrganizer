@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
-
-import {Events} from '../api/events.js';
+import ReactTransitionGroup from "react-addons-css-transition-group"
 import Event from './Event.js';
-import DatePicker from './DatePicker.js';
-import {userEventsList} from "../api/userEventsList";
 
 // App component - represents the whole app
 class EventList extends Component {
@@ -47,8 +43,14 @@ class EventList extends Component {
                             </div>
                             <hr/>
                             <br/>
-                            <div className="row">
+                            <ReactTransitionGroup component="div" className="row"
+                            transitionName="events" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
                                 {this.renderEvents()}
+                            </ReactTransitionGroup>
+                            <div className="buttons centered">
+                                <button onClick={this.props.loadMore} className="btn btn-danger btn-lg">
+                                    Show More
+                                </button>
                             </div>
                         </div>
                     </div>
