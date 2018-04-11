@@ -23,15 +23,13 @@ export default class AddEvent extends Component {
 
     addEvent(e) {
         e.preventDefault();
-        Events.insert({
-            name: this.refs.name.value,
-            date: this.refs.date.value,
-            location: this.refs.location.value,
-            category: this.refs.category.value,
-            description: this.refs.description.value,
-            createdAt: new Date(),
-        });
-        res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
+        const name = this.refs.name.value;
+        const date = this.refs.date.value;
+        const location = this.refs.location.value;
+        const category = this.refs.category.value;
+        const description = this.refs.description.value;
+        Meteor.call("events.insert",name,date,location,category, description)
+        const res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
         this.insertItems(res[0]._id);
         this.setState({goSearchEv: true});

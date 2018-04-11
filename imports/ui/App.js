@@ -21,6 +21,7 @@ class App extends Component {
 }
 
 export default withTracker(() => {
+    Meteor.subscribe("events");
     return {
         eventsList: Events.find({}).fetch(),
         currentUser: Meteor.user()

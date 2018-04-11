@@ -10,10 +10,7 @@ import {Comments} from "../api/comments";
 // EventDetail component - represents the detail of a single event
 class EventDetail extends Component {
     constructor(props) {
-        console.log("Props en constructor");
-        console.log(props);
         super(props);
-        console.log(this.props);
         this.state = {
             showAddEvent: true
         };
@@ -64,7 +61,6 @@ class EventDetail extends Component {
     }
 
     render() {
-        console.log(this.props.location.state);
         return (
 
             <div className="blog-2 section section-white">
@@ -125,8 +121,6 @@ export default withTracker((props) => {
     Meteor.subscribe("items");
     Meteor.subscribe('Comments');
     const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
-    console.log("Props en with tracker");
-    console.log(props);
     return {
         items: Items.find({idEvent: props.match.params.eventId}).fetch(),
         comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),

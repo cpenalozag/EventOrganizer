@@ -1720,3 +1720,13 @@ textarea.fohm-control {
   font-weight:normal !important;
   text-overflow:ellipsis !important;
 }
+.ul-cb {
+  padding-left: 0px;
+}
+.text-muted {
+  font-size: 0.8em;
+}
+.text-cl {
+  color: #333333;
+  font-size: 1em;
+}
