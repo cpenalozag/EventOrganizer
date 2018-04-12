@@ -87,25 +87,25 @@ class UserEventList extends Component {
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h5 className="subtittle">Check your subscribe events</h5>
+                                            <h5 className="subtittle">Upcoming events</h5>
                                             <br/>
                                             <div className="input-group">
-                                                <input type="text" className="form-control search-query"
+                                                <input type="text" className="form-control border-input sb"
                                                        placeholder="Try: Torneo cachito uniandes"
                                                        value={this.state.search}
                                                        onChange={this.updateSearch.bind(this)}/>
                                             </div>
-                                            <br/>
+                                            <hr/>
                                             <br/>
                                             <div className="row">
                                                 {this.renderEvents()}
                                             </div>
                                         </div> :
                                         <div>
-                                            <h3>
+                                            <p>
                                                 It seems like you don't have any events {Meteor.user().username}. Go to events and
                                                 join one now!
-                                            </h3>
+                                            </p>
                                             <br/>
                                             <div className="ml-auto mr-auto">
                                                 <button onClick={this.redirectEvents.bind(this)}

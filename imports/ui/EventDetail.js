@@ -12,8 +12,7 @@ class EventDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            event: props.location.event,
-            showAddEvent:true
+            showAddEvent: true
         };
     }
 
@@ -23,17 +22,17 @@ class EventDetail extends Component {
             userEventsList.insert({
                 _idUser: Meteor.userId(),
                 _ListEventsId: [
-                    this.state.event._id._str
+                    this.props.location.state.event._id._str
                 ]
             })
         }
         else {
             const userEv = this.props.userEvents._ListEventsId;
             const exists = userEv.filter((ev) => {
-                return ev === this.state.event._id;
+                return ev === this.props.location.state.event._id;
             })
-            if (!exists.length>0) {
-                userEv.push(this.state.event._id);
+            if (!exists.length > 0) {
+                userEv.push(this.props.location.state.event._id);
                 const newEv = {
                     _idUser: Meteor.userId(),
                     _ListEventsId: userEv
@@ -46,19 +45,19 @@ class EventDetail extends Component {
                     {upsert: true}
                 )
 
-                this.setState({showAddEvent:false});
+                this.setState({showAddEvent: false});
             }
             else
-                this.setState({showAddEvent:false});
+                this.setState({showAddEvent: false});
             window.alert("Now you are part of the event");
         }
 
 
     }
 
-    exist(){
+    exist() {
 
-        this.setState({showAddEvent:false});
+        this.setState({showAddEvent: false});
     }
 
     render() {
@@ -69,20 +68,24 @@ class EventDetail extends Component {
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
                             <div className="row">
-                                <div className="col-md-5 ">
+                                <div className="col-md-5 col-sm-12">
                                     <div className="fixed">
-                                        <Detail event={this.state.event}/>
+                                        <Detail event={this.props.location.state.event}/>
                                     </div>
                                 </div>
-                                <div className="col-md-7 scrollit">
-                                    <ItemList items={this.props.items} eventId={this.state.event._id}/>
+                                <div className="col-md-7 col-sm-12">
+                                    <ItemList items={this.props.items} eventId={this.props.location.state.event._id}/>
                                     <hr/>
-                                    <CommentList comments={this.props.comments} id={this.state.event._id}/>
+                                    <CommentList comments={this.props.comments}
+                                                 id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    {Meteor.userId()&&this.state.showAddEvent ? <div className="buttons">
-                                        <button onClick={this.addEvent.bind(this)} className="btn btn-danger btn-lg">
-                                            Add to my events <i className="fa fa-search"/>
-                                        </button>
+                                    {Meteor.userId() && this.state.showAddEvent ? <div className="buttons">
+                                        <div className="centered">
+                                            <button onClick={this.addEvent.bind(this)}
+                                                    className="btn btn-danger btn-lg">
+                                                Add to my events <i className="fa fa-search"/>
+                                            </button>
+                                        </div>
                                     </div> : ""}
                                 </div>
                             </div>
@@ -98,13 +101,14 @@ class Detail extends Component {
 
     render() {
         return (
-            <div className="text-center title">
-                <h2>{this.props.event.name}</h2>
+            <div className="text-center title card-title">
+                <h2 className="no-margin">{this.props.event.name}</h2>
                 <h3 className="title-uppercase">
                     <small>{this.props.event.location}</small>
                 </h3>
                 <div className="text-center">
                     <h6 className="title-uppercase">{this.props.event.date}</h6>
+                    <hr/>
                     <p align="justify">{this.props.event.description}</p>
                 </div>
             </div>
@@ -119,8 +123,8 @@ export default withTracker((props) => {
     Meteor.subscribe('Comments');
     const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
     return {
-        items: Items.find({idEvent: props.location.event._id}).fetch(),
-        comments: Comments.find({},{sort: {createdAt: -1}}).fetch(),
+        items: Items.find({idEvent: props.match.params.eventId}).fetch(),
+        comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
         userEvents,
     };
 })(EventDetail);

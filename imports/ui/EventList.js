@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
-
-import {Events} from '../api/events.js';
+import ReactTransitionGroup from "react-addons-css-transition-group"
 import Event from './Event.js';
-import DatePicker from './DatePicker.js';
-import {userEventsList} from "../api/userEventsList";
 
 // App component - represents the whole app
 class EventList extends Component {
@@ -38,19 +34,23 @@ class EventList extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <h2 className="title">Search upcoming events here</h2>
-                            <br/>
+                            <h2 className="title">Browse upcoming events</h2>
                             <div className="input-group">
-                                <input type="text" className="form-control border-input"
+                                <input type="text" className="form-control border-input sb"
                                        placeholder="Try: Torneo cacho uniandes"
                                        value={this.state.search}
                                        onChange={this.updateSearch.bind(this)}/>
                             </div>
+                            <hr/>
                             <br/>
-                            <br/>
-                            <br/>
-                            <div className="row">
+                            <ReactTransitionGroup component="div" className="row"
+                            transitionName="events" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
                                 {this.renderEvents()}
+                            </ReactTransitionGroup>
+                            <div className="buttons centered">
+                                <button onClick={this.props.loadMore} className="btn btn-danger btn-lg">
+                                    Show More
+                                </button>
                             </div>
                         </div>
                     </div>

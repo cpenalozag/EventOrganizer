@@ -1,9 +1,16 @@
 import { Mongo } from 'meteor/mongo';
 import {SimpleSchema} from "simpl-schema/dist/SimpleSchema";
+import {Meteor} from "meteor/meteor";
+import {Events} from "./events";
 
 
 export const userEventsList = new Mongo.Collection('listEvents');
 
+if(Meteor.isServer){
+    Meteor.publish("ListEvents", () => {
+        return userEventsList.find({});
+    });
+}
 
 /*const schema3 = new SimpleSchema({
     "EventsId": String,

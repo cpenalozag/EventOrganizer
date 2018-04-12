@@ -54,7 +54,7 @@ class Home extends Component {
                 <div className="section-gray">
                     <div className="container">
                         <div className="row">
-                            <div className="title content-center col-lg-12 col-md-12 text-center">
+                            <div className="subtitle content-center col-lg-12 col-md-12 text-center">
                                 <h2>About the app</h2>
                             </div>
                         </div>

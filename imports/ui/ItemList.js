@@ -28,7 +28,7 @@ class ItemList extends Component {
     render() {
         return (
             <div className="comments media-area">
-                <h2 className="text-center title">Items</h2>
+                <h2 className="text-center title">Checklist</h2>
                 <form onSubmit={this.handleSubmit.bind(this)} className="new-task">
                 {Meteor.userId() ?
                     <input className="form-control border-input" type="text" ref="textInput" placeholder="Type to add new item"/>:
