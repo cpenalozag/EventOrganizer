@@ -101,13 +101,14 @@ class Detail extends Component {
 
     render() {
         return (
-            <div className="text-center title">
-                <h2>{this.props.event.name}</h2>
+            <div className="text-center title card-title">
+                <h2 className="no-margin">{this.props.event.name}</h2>
                 <h3 className="title-uppercase">
                     <small>{this.props.event.location}</small>
                 </h3>
                 <div className="text-center">
                     <h6 className="title-uppercase">{this.props.event.date}</h6>
+                    <hr/>
                     <p align="justify">{this.props.event.description}</p>
                 </div>
             </div>

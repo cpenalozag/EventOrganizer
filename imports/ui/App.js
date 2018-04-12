@@ -21,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore.bind(this)} />
+                <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore} />
                 <Foot/>
             </div>
 
@@ -29,8 +29,9 @@ class App extends Component {
     }
 }
 
-export default withTracker((props) => {
+export default withTracker(() => {
     Meteor.subscribe("Events", NUM_RECORDS * pageNumber.get(), startAt);
+
     return {
         eventsList: Events.find({}).fetch(),
         currentUser: Meteor.user()

@@ -12,7 +12,7 @@ if(Meteor.isServer){
             limit:{type:Number},
             startAt:{type:Date}
         }).validate({limit,startAt});
-        return Events.find({createdAt: {$lte: startAt}}, {sort: {createdAt: -1}, limit: limit});
+        return Events.find({createdAt: {$lte: startAt}}, {sort:{date:1}, limit: limit});
     });
 }
 

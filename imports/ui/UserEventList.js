@@ -102,10 +102,10 @@ class UserEventList extends Component {
                                             </div>
                                         </div> :
                                         <div>
-                                            <h3>
+                                            <p>
                                                 It seems like you don't have any events {Meteor.user().username}. Go to events and
                                                 join one now!
-                                            </h3>
+                                            </p>
                                             <br/>
                                             <div className="ml-auto mr-auto">
                                                 <button onClick={this.redirectEvents.bind(this)}

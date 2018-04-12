@@ -54,7 +54,7 @@ h6,.h6 {
 }
 
 p {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.5em;
   margin-bottom: 5px;
 }
@@ -264,11 +264,13 @@ h1 small,h2 small,h3 small,h1 .small,h2 .small,h3 .small {
 }
 
 .title {
+  color: #333;
   margin-top: 30px;
   margin-bottom: 20px;
   min-height: 32px;
 }
 .subtitle{
+  color: #333;
   margin-top: 25px;
   margin-bottom: 0px;
 }
@@ -570,7 +572,8 @@ textarea .form-control {
 }
 .section {
   min-height: 65vmax;
-  padding: 10vh 0;
+  padding-top: 10vh;
+  padding-bottom: 5vh;
   position: relative;
   background-color: #FFFFFF;
 }
@@ -595,7 +598,7 @@ textarea .form-control {
 
 .navbar .navbar-brand {
   font-weight: 600;
-  margin: 5px 0px;
+  margin: 0px 0px;
   padding: 20px 15px;
   font-size: 18px;
   color: #000000;
@@ -604,8 +607,8 @@ textarea .form-control {
 
 .navbar .navbar-nav .nav-item .nav-link {
   line-height: 1.6;
-  margin: 15px 3px;
-  padding: 10px 15px;
+  margin: 0px 3px;
+  padding: 20px 15px;
   opacity: .8;
   font-size: 16px;
   text-transform: uppercase;
@@ -932,13 +935,15 @@ form button:hover {
 }
 
 .fixed {
+  max-height: 38vmax;
+  overflow: scroll;
   position: fixed;
-  width: 25%;
-  min-height: 55vh;
+  width: 28%;
+  min-height: 36vmax;
   background-color: #FFFFFF;
   border: 1px solid #ccc;
-  margin-top: 5%;
-  padding: 2%;
+  margin-top: 3%;
+  padding: 0% 2%;
   z-index: 5;
 }
 @media all and (max-width: 1000px)
@@ -1042,6 +1047,9 @@ button::-moz-focus-inner,input[type="reset"]::-moz-focus-inner,input[type="butto
 .btn[class*="btn-outline-"] {
   background-image: none;
   background-color: transparent;
+}
+.btn-outline-danger:focus{
+  color: #dc3545 !important;
 }
 
 .btn-group .btn + .btn,.btn-group .btn + .btn-group,.btn-group .btn-group + .btn,.btn-group .btn-group + .btn-group {
@@ -1233,7 +1241,7 @@ form button:hover {
 #login-buttons {
   font-family: Helvetica;
   margin-left: 3vh;
-  margin-top: 17px;
+  margin-top: 13px;
   box-sizing: border-box;
   font-weight: 600;
   line-height: 1.75;
@@ -1421,16 +1429,22 @@ textarea.fohm-control {
   text-decoration: none;
 }
 .card-blog a .title-uppercase {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .blog .card-big-shadow, .blog-page .card-big-shadow {
   max-width: 100%;
+}
+.card-title{
+  margin:10px 0px !important;
 }
 .blog .card, .blog-page .card {
   margin-top: 25px;
   background-size: cover;
   min-height: 430px;
   width: 100%;
+}
+.no-margin{
+  margin: 0px 0px;
 }
 .section .page-header .card .card-body .author .avatar {
   width: 130px;
@@ -1483,7 +1497,8 @@ textarea.fohm-control {
 .card .card-description {
   color: #444444;
   margin-bottom: 5px;
-  margin-top: 15px;
+  margin-top: 12px;
+  min-height: 13vh;
 }
 .card.card-blog, .card.card-testimonial .card-description + .card-title {
   margin-top: 3px;
@@ -1586,7 +1601,7 @@ textarea.fohm-control {
   margin: 0;
 }
 .card .card-footer {
-  padding: 15px;
+  padding: 10px;
   background: transparent;
   border-top: 0 none;
 }
