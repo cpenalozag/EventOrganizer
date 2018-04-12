@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
 
 import {Events} from '../api/events.js';
-import Event from './Event.js';
-import DatePicker from './DatePicker.js';
+import Event from './Event.jsx';
+import DatePicker from './DatePicker.jsx';
 import {userEventsList} from "../api/userEventsList";
 import {Redirect, Route} from "react-router-dom";
-import EventList from "./EventList.js";
+import EventList from "./EventList.jsx";
 
 // App component - represents the whole app
 class UserEventList extends Component {

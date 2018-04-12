@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import ReactTransitionGroup from "react-addons-css-transition-group"
-import Event from './Event.js';
+import Event from './Event.jsx';
 
 // App component - represents the whole app
 class EventList extends Component {

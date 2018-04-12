@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import Nav from "./Nav";
 import {Events} from "../api/events";
-import Foot from "./Foot.js";
+import Foot from "./Foot.jsx";
 // App component - represents the whole app
 
 const NUM_RECORDS = 3;

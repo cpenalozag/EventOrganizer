@@ -6,7 +6,7 @@ import EventList from "./EventList";
 import AddEvent from "./AddEvent";
 import Home from "./Home";
 import EventDetail from "./EventDetail";
-import UserEventList from "./UserEventList.js";
+import UserEventList from "./UserEventList.jsx";
 
 class Nav extends Component {
 

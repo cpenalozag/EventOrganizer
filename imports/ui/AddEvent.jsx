@@ -26,12 +26,16 @@ export default class AddEvent extends Component {
         const location = this.refs.location.value;
         const category = this.refs.category.value;
         const description = this.refs.description.value;
-        if (name.length===0 || date.length===0){
+        console.log(name.length);
+        if (!(name.length===0 || date.length===0 || location.length===0 || category.legth === 0 || description.length === 0)){
             Meteor.call("events.insert", name, date, location, category, description)
             const res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
             this.insertItems(res[0]._id);
             this.setState({goSearchEv: true});
+        }
+        else {
+            window.alert("Please fill out all the required fields!");
         }
 
     }

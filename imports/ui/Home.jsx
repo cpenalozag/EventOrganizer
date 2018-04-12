@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import {Route} from "react-router-dom";
-import EventList from "./EventList.js";
+import EventList from "./EventList.jsx";
 
 // Home component - represents the whole app
 class Home extends Component {
