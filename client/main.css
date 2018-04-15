@@ -54,7 +54,7 @@ h6,.h6 {
 }
 
 p {
-  font-size: 17px;
+  font-size: 1.2em;
   line-height: 1.5em;
   margin-bottom: 5px;
 }
@@ -265,7 +265,7 @@ h1 small,h2 small,h3 small,h1 .small,h2 .small,h3 .small {
 
 .title {
   color: #333;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 20px;
   min-height: 32px;
 }
@@ -666,6 +666,13 @@ body {
 .page-header.page-header-small {
   min-height: 65vh !important;
   max-height: 700px;
+}
+
+.header-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(30,50,80,0.5);
 }
 
 .page-header {

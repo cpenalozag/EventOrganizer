@@ -34,7 +34,7 @@ class EventList extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-10 ml-auto mr-auto">
-                            <h2 className="title">Browse upcoming events</h2>
+                            <h2 className="title">Browse public events</h2>
                             <div className="input-group">
                                 <input type="text" className="form-control border-input sb"
                                        placeholder="Try: Torneo cacho uniandes"

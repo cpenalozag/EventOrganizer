@@ -3,6 +3,8 @@ import {withTracker} from 'meteor/react-meteor-data';
 import Nav from "./Nav";
 import {Events} from "../api/events";
 import Foot from "./Foot.jsx";
+import {userEventsList} from "../api/userEventsList";
+import {Meteor} from "meteor/meteor";
 // App component - represents the whole app
 
 const NUM_RECORDS = 3;
@@ -21,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore} />
+                <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore} userEvents={this.props.userEvents}/>
                 <Foot/>
             </div>
 
@@ -31,9 +33,10 @@ class App extends Component {
 
 export default withTracker(() => {
     Meteor.subscribe("Events", NUM_RECORDS * pageNumber.get(), startAt);
-
+    Meteor.subscribe("ListEvents", Meteor.userId());
     return {
         eventsList: Events.find({}).fetch(),
-        currentUser: Meteor.user()
+        currentUser: Meteor.user(),
+        userEvents: userEventsList.find({}).fetch(),
     };
 })(App);

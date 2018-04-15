@@ -26,9 +26,9 @@ export default class AddEvent extends Component {
         const location = this.refs.location.value;
         const category = this.refs.category.value;
         const description = this.refs.description.value;
-        console.log(name.length);
+        const type = this.refs.type.value;
         if (!(name.length===0 || date.length===0 || location.length===0 || category.legth === 0 || description.length === 0)){
-            Meteor.call("events.insert", name, date, location, category, description)
+            Meteor.call("events.insert", name, date, location, category, description, type)
             const res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
             this.insertItems(res[0]._id);
@@ -119,11 +119,25 @@ export default class AddEvent extends Component {
                                             <option value="Fairs & Festivals">Fairs & Festivals</option>
                                         </select>
                                     </div>
-                                    <div className="form-group">
-                                        <h6>Date <span className="icon-danger">*</span></h6>
-                                        <input ref="date" className="form-control border-input" required id="date"
-                                               type="date"/>
+                                    <div className="row">
+                                        <div className="col-md-6">
+                                            <div className="form-group">
+                                                <h6>Date <span className="icon-danger">*</span></h6>
+                                                <input ref="date" className="form-control border-input" required id="date"
+                                                       type="date"/>
+                                            </div>
+                                        </div>
+                                        <div className="col-md-6">
+                                            <div className="form-group">
+                                                <h6>Type <span className="icon-danger">*</span></h6>
+                                                <select ref="type" className="form-control">
+                                                    <option value="Public">Public</option>
+                                                    <option value="Private">Private</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
+
                                     <div>
                                         <h6>Checklist</h6>
                                         <div className="row buttons-row">

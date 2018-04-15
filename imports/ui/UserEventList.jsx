@@ -4,10 +4,10 @@ import {withTracker} from 'meteor/react-meteor-data';
 
 import {Events} from '../api/events.js';
 import Event from './Event.jsx';
-import DatePicker from './DatePicker.jsx';
 import {userEventsList} from "../api/userEventsList";
 import {Redirect, Route} from "react-router-dom";
 import EventList from "./EventList.jsx";
+import {Meteor} from "meteor/meteor";
 
 // App component - represents the whole app
 class UserEventList extends Component {
@@ -21,48 +21,21 @@ class UserEventList extends Component {
         };
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        // Find the text field via the React ref
-        const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
-
-        Events.insert({
-            text,
-            createdAt: new Date(), // current time
-        });
-
-        // Clear form
-        ReactDOM.findDOMNode(this.refs.textInput).value = '';
-    }
-
     updateSearch(evt) {
         this.setState({search: evt.target.value.substr(0, 20)});
     }
 
-    filterDate() {
-        this.setState({
-            filterDate: !this.state.filterDate,
-        });
-    }
 
     renderEvents() {
-        let idEvents = this.props.userEvents._ListEventsId;
 
-        let filtered = [];
-        for (let i = 0; i < idEvents.length; i++) {
-            filtered.push(this.props.eventsList.filter((event) => {
-                return event._id === (idEvents[i]);
-            }));
-        }
-        const filteredEvents = filtered.filter(
+        let events = this.props.userEvents;
+        const filteredEvents = events.filter(
             (event) => {
-
-                if (event[0] !== undefined)
-                    return event[0].name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
-        return filteredEvents ? filteredEvents.map((event) => (
-            <Event key={event[0]._id} event={event[0]}/>
-        )) : "";
+        return filteredEvents.map((event) => (
+            <Event key={event._id} event={event}/>
+        ));
     }
 
     redirectEvents() {
@@ -87,7 +60,7 @@ class UserEventList extends Component {
 
                                     {this.props.userEvents ?
                                         <div>
-                                            <h5 className="subtittle">Upcoming events</h5>
+                                            <h5 className="subtittle">Your upcoming events</h5>
                                             <br/>
                                             <div className="input-group">
                                                 <input type="text" className="form-control border-input sb"
@@ -103,7 +76,8 @@ class UserEventList extends Component {
                                         </div> :
                                         <div>
                                             <p>
-                                                It seems like you don't have any events {Meteor.user().username}. Go to events and
+                                                It seems like you don't have any events {Meteor.user().username}. Go to
+                                                events and
                                                 join one now!
                                             </p>
                                             <br/>
@@ -126,9 +100,9 @@ class UserEventList extends Component {
 }
 
 export default withTracker(() => {
-    const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
+    Meteor.subscribe("ListEvents", Meteor.userId());
     return {
-        userEvents,
+        userEvents:userEventsList.find({}).fetch(),
     };
 })(UserEventList);
 
