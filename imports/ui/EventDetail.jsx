@@ -6,6 +6,7 @@ import {Items} from "../api/items.js";
 import {Comments} from "../api/comments";
 import {Meteor} from "meteor/meteor";
 import {userEventsList} from "../api/userEventsList";
+import {HostEvents} from "../api/hostEvents";
 
 
 // EventDetail component - represents the detail of a single event
@@ -44,6 +45,16 @@ class EventDetail extends Component {
         return false;
     }
 
+    hostOfEvent() {
+        const contains = this.props.hostEvents.filter((event)=>{
+            return event._id ===  this.props.location.state.event._id;
+        })
+        if (contains.length>0){
+            return true;
+        }
+        return false;
+    }
+
     render() {
         return (
 
@@ -63,7 +74,7 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    {Meteor.userId() && this.state.showAdd && !this.partOfEvent() ? <div className="buttons">
+                                    {Meteor.userId() && this.state.showAdd && !this.partOfEvent() && !this.hostOfEvent() ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}
                                                     className="btn btn-danger btn-lg">
@@ -108,9 +119,11 @@ export default withTracker((props) => {
     Meteor.subscribe("items");
     Meteor.subscribe('Comments');
     Meteor.subscribe("ListEvents", Meteor.userId());
+    Meteor.subscribe("HostEvents", Meteor.userId());
     return {
         items: Items.find({idEvent: props.match.params.eventId}).fetch(),
         comments: Comments.find({idEvent: props.match.params.eventId}, {sort: {createdAt: -1}}).fetch(),
         userEvents: userEventsList.find({}).fetch(),
+        hostEvents:HostEvents.find({}).fetch()
     };
 })(EventDetail);

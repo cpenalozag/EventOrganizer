@@ -26,27 +26,25 @@ class Home extends Component {
         }
         return (
             <div className="header-2">
-                <div className="header-overlay">
-                    <div className="page-header h-80">
-                        <div className="filter"></div>
-                        <div className="content-center">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-md-6 text-left">
-                                        <h1 className="title">Event Manager</h1>
-                                        <div className="p6">
-                                            <p align="justify">With Event manager you can meet new people, organize events
-                                                and live new experiences. Browse events in the event tab. Sign up to join
-                                                events: comment and become part of the planning process!
-                                            </p>
-                                        </div>
+                <div className="page-header h-80">
+                    <div className="filter"></div>
+                    <div className="content-center">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-6 text-left">
+                                    <h1 className="title">Event Manager</h1>
+                                    <div className="p6">
+                                        <p align="justify">With Event manager you can meet new people, organize events
+                                            and live new experiences. Browse events in the event tab. Sign up to join
+                                            events: comment and become part of the planning process!
+                                        </p>
+                                    </div>
 
-                                        <br/>
-                                        <div className="buttons">
-                                            <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
-                                                Search Events <i className="fa fa-search"/>
-                                            </button>
-                                        </div>
+                                    <br/>
+                                    <div className="buttons">
+                                        <button onClick={this.goSearch.bind(this)} className="btn btn-danger btn-lg">
+                                            Search Events <i className="fa fa-search"/>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

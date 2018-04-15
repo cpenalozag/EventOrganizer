@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {withTracker} from 'meteor/react-meteor-data';
 
-import {Events} from '../api/events.js';
 import Event from './Event.jsx';
 import {userEventsList} from "../api/userEventsList";
+import {HostEvents} from "../api/hostEvents";
 import {Redirect, Route} from "react-router-dom";
 import EventList from "./EventList.jsx";
 import {Meteor} from "meteor/meteor";
@@ -29,6 +28,18 @@ class UserEventList extends Component {
     renderEvents() {
 
         let events = this.props.userEvents;
+        const filteredEvents = events.filter(
+            (event) => {
+                return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+            });
+        return filteredEvents.map((event) => (
+            <Event key={event._id} event={event}/>
+        ));
+    }
+
+    renderHostedEvents() {
+
+        let events = this.props.hostEvents;
         const filteredEvents = events.filter(
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
@@ -70,6 +81,12 @@ class UserEventList extends Component {
                                             </div>
                                             <hr/>
                                             <br/>
+                                            <h3>Events you host</h3>
+                                            <div className="row">
+                                                {this.renderHostedEvents()}
+                                            </div>
+                                            <hr/>
+                                            <h3>Events in which you participate</h3>
                                             <div className="row">
                                                 {this.renderEvents()}
                                             </div>
@@ -101,8 +118,10 @@ class UserEventList extends Component {
 
 export default withTracker(() => {
     Meteor.subscribe("ListEvents", Meteor.userId());
+    Meteor.subscribe("HostEvents", Meteor.userId());
     return {
         userEvents:userEventsList.find({}).fetch(),
+        hostEvents:HostEvents.find({}).fetch()
     };
 })(UserEventList);
 
