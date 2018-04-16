@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {Meteor} from "meteor/meteor";
 
@@ -19,7 +19,7 @@ export default class Event extends Component {
         const description = this.props.event.description;
         const type = this.props.event.type;
         console.log(type);
-        Meteor.call('events.insert', id, name, date, location, category, description, type);
+        Meteor.call("events.insert", id, name, date, location, category, description, type);
         Meteor.call("eventsAdmin.remove", this.props.event._id);
     }
 

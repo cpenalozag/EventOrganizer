@@ -14,7 +14,6 @@ if(Meteor.isServer){
 Meteor.methods({
     "Comments.insert"(text,idEvent){
         check(text, String);
-        check(idEvent, String);
 
         //Make sure the user is logged in before inserting a comment
         if(!this.userId){

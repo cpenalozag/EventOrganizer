@@ -30,11 +30,9 @@ export default class AddEvent extends Component {
         const type = this.refs.type.value;
         if (!(name.length===0 || date.length===0 || location.length===0 || category.length === 0 || description.length === 0)){
             Meteor.call("eventsAdmin.insert", name, date, location, category, description, type)
-            Meteor.call("hostEvents.insert", name, date, location, category, description, type, Meteor.userId());
             const res = EventsAdmin.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
-            console.log(res);
+            Meteor.call("hostEvents.insert", res[0]._id, name, date, location, category, description, type, Meteor.userId());
             this.insertItems(res[0]._id);
-            console.log(typeof res[0]._id);
             this.setState({goSearchEv: true});
         }
         else {

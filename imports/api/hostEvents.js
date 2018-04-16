@@ -13,7 +13,7 @@ if (Meteor.isServer) {
 
 
 Meteor.methods({
-    "hostEvents.insert"(name, date, location, category, description, type, userId) {
+    "hostEvents.insert"(id, name, date, location, category, description, type, userId) {
         check(name, String);
         check(date, String);
         check(location, String);
@@ -26,6 +26,7 @@ Meteor.methods({
             throw new Meteor.Error("Not-authorized");
         }
         HostEvents.insert({
+            _id:id,
             name,
             date,
             type,
