@@ -593,7 +593,8 @@ textarea .form-control {
     font-size: 18px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
-    padding: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 30px;
     background: #FFFFFF;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
@@ -612,6 +613,7 @@ textarea .form-control {
     margin: 0px 3px;
     padding: 20px 15px;
     opacity: .8;
+    text-align: center;
     font-size: 16px;
     text-transform: uppercase;
     font-weight: 600;
@@ -636,6 +638,7 @@ a {
 }
 
 .navbar-toggler {
+    min-height: 35px;
     outline: none !important;
     cursor: pointer;
     padding: 0;
@@ -1285,7 +1288,12 @@ textarea.fohm-control {
     border-radius: 5px;
 
 }
+@media all and (max-width: 1000px) {
+    #login-dropdown-list {
+        width: 95%;
 
+    }
+}
 .accounts-dialog > input {
     margin: auto;
     border: 0;
@@ -1329,12 +1337,12 @@ textarea.fohm-control {
 }
 
 #login-password-again-label-and-input input {
+    color: #fff;
     margin: auto;
     border: 0;
     background: transparent;
     padding: 2px 10px;
     margin: 18px 4px 0 4px;
-    color: rgb(255, 255, 255);
     font-size: 16px;
 
 }
@@ -1375,6 +1383,7 @@ textarea.fohm-control {
 }
 
 #login-username-label-and-input input {
+    color: #fff;
     font-family: Montserrat;
     width: 60%;
     margin: auto;
@@ -1386,9 +1395,11 @@ textarea.fohm-control {
 
 .error-message {
     color: #FFFFFF !important;
+    text-align: center;
 }
 
 #login-password-label-and-input input {
+    color: #fff;
     font-family: Montserrat;
     width: 60%;
     margin: auto;
@@ -1721,6 +1732,10 @@ textarea.fohm-control {
     width: 200px;
     text-align: center;
     margin: 0 auto;
+}
+
+.center-login {
+    margin: auto;
 }
 
 .sb {

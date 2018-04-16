@@ -37,7 +37,7 @@ class Nav extends Component {
                                             { this.props.currentUser ? <li className="nav-item">
                                                 <NavLink exact className="nav-link" to="/myEvents">My events</NavLink>
                                             </li> :""}
-                                            <li className="nav-item"><AccountsUIWrapper/></li>
+                                            <li className="nav-item center-login"><AccountsUIWrapper/></li>
 
                                         </ul>
                                 </div>
