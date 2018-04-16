@@ -54,7 +54,7 @@ h6, .h6 {
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 1.5em;
     margin-bottom: 5px;
 }
@@ -605,7 +605,7 @@ textarea .form-control {
 
 @media all and (max-width: 1000px) {
     .navbar {
-        padding-bottom: 30px !important;
+        padding-bottom: auto !important;
     }
 }
 
