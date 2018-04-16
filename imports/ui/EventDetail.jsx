@@ -13,10 +13,6 @@ import {userEventsList} from "../api/userEventsList";
 class EventDetail extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props);
-        this.state = {
-            showAdd: true,
-        }
     }
 
     addEvent() {
@@ -33,26 +29,6 @@ class EventDetail extends Component {
 
         this.setState({showAdd: false});
         window.alert("Now you are part of the event!");
-    }
-
-    partOfEvent() {
-        const contains = this.props.userEvents.filter((event)=>{
-          return event._id ===  this.props.location.state.event._id;
-        })
-        if (contains.length>0){
-            return true;
-        }
-        return false;
-    }
-
-    hostOfEvent() {
-        const contains = this.props.hostEvents.filter((event)=>{
-            return event._id ===  this.props.location.state.event._id;
-        })
-        if (contains.length>0){
-            return true;
-        }
-        return false;
     }
 
     render() {
@@ -75,7 +51,7 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    {Meteor.userId() && this.state.showAdd ? <div className="buttons">
+                                    {Meteor.userId() && this.props.show ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}
                                                     className="btn btn-danger btn-lg">
@@ -119,12 +95,8 @@ class Detail extends Component {
 export default withTracker((props) => {
     Meteor.subscribe("items");
     Meteor.subscribe('Comments');
-    Meteor.subscribe("ListEvents", Meteor.userId());
-    Meteor.subscribe("HostEvents", Meteor.userId());
     return {
         items: Items.find({idEvent: props.match.params.eventId}).fetch(),
         comments: Comments.find({idEvent: props.match.params.eventId}, {sort: {createdAt: -1}}).fetch(),
-        userEvents: userEventsList.find({}).fetch(),
-        hostEvents: HostEvents.find({}).fetch(),
     };
 })(EventDetail);

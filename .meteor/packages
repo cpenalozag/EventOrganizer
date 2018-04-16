@@ -31,6 +31,7 @@ accounts-facebook
 facebook-config-ui
 mdg:validated-method
 alanning:roles
-tarang:ssl
 ddp-rate-limiter
 meteortesting:mocha
+email
+

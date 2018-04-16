@@ -13,6 +13,10 @@ Meteor.startup(() => {
     Inject.rawModHtml("addLanguage", function(html) {
         return html.replace(/<html>/, '<!-- HTML 5 -->\n<html lang="en">');
     });
+    process.env.MAIL_URL="smtps://postmaster%40sandbox4537ad8100634307a8194ad2fda0381e.mailgun.org:21d08359dc71e870afd40c6dc2ed6d57-4497bd1d-a1a769ce@smtp.mailgun.org:587";
+    Accounts.config({
+        sendVerificationEmail:true
+    })
 });
 
 
