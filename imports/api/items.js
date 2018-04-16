@@ -20,6 +20,8 @@ Meteor.methods({
             throw new Meteor.Error("Not-authorized");
         }
 
+        console.log(Meteor.user());
+
         Items.insert({
             text,
             idEvent,
