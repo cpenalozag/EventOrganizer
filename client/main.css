@@ -216,6 +216,10 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 
 .text-danger, .text-danger:hover {
     color: #f5593d !important;
+    -webkit-transition: color 500ms ease;
+    -moz-transition: color 500ms ease;
+    -o-transition: color 500ms ease;
+    transition: color 500ms ease;
 }
 
 .heart {
@@ -983,6 +987,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
 
 .text-danger, .text-danger:hover {
     color: #f5593d !important;
+    -webkit-transition: color 500ms ease;
+    -moz-transition: color 500ms ease;
+    -o-transition: color 500ms ease;
+    transition: color 500ms ease;
 }
 
 @keyframes heathing {
@@ -1216,7 +1224,11 @@ form button {
 }
 
 form button:hover {
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    -webkit-transition: background-color 500ms ease;
+    -moz-transition: background-color 500ms ease;
+    -o-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
 }
 
 #login-sign-in-link {
@@ -1234,12 +1246,17 @@ form button:hover {
 
 #login-sign-in-link:hover {
     background-color: #cc2a3a;
+    -webkit-transition: background-color 500ms ease;
+    -moz-transition: background-color 500ms ease;
+    -o-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
 }
 
 #login-buttons {
     font-family: Helvetica;
     margin-left: 3vh;
     margin-top: 13px;
+    margin-bottom: 20px;
     box-sizing: border-box;
     font-weight: 600;
     line-height: 1.75;
@@ -1528,6 +1545,17 @@ textarea.fohm-control {
     transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 200ms ease;
 }
 
+.card-fixed {
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    color: #333333;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    border: 0 none;
+}
+
 .card:not(.card-plain):hover {
     box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
     transform: translateY(-10px);
@@ -1545,6 +1573,12 @@ textarea.fohm-control {
 }
 
 .card .card-description {
+    color: #444444;
+    margin-bottom: 5px;
+    margin-top: 12px;
+    min-height: 13vh;
+}
+.card-fixed .card-description {
     color: #444444;
     margin-bottom: 5px;
     margin-top: 12px;
@@ -1681,6 +1715,36 @@ textarea.fohm-control {
     background: transparent;
     border-top: 0 none;
 }
+.card-fixed .card-footer {
+    padding: 10px;
+    background: transparent;
+    border-top: 0 none;
+}
+
+.verify-event-icon {
+    color: green;
+    font-size: 28px !important;
+    cursor: pointer;
+}
+.verify-event-icon:hover {
+    color: darkgreen;
+    -webkit-transition: color 500ms ease;
+    -moz-transition: color 500ms ease;
+    -o-transition: color 500ms ease;
+    transition: color 500ms ease;
+}
+.delete-event-icon {
+    color: red;
+    font-size: 28px !important;
+    cursor: pointer;
+}
+.delete-event-icon:hover {
+    color: darkred;
+    -webkit-transition: color 500ms ease;
+    -moz-transition: color 500ms ease;
+    -o-transition: color 500ms ease;
+    transition: color 500ms ease;
+}
 
 .card.card-separator:after {
     height: 100%;
@@ -1774,6 +1838,10 @@ textarea.fohm-control {
 }
 #login-buttons-facebook:hover {
     background-color: #4572bd;
+    -webkit-transition: background-color 500ms ease;
+    -moz-transition: background-color 500ms ease;
+    -o-transition: background-color 500ms ease;
+    transition: background-color 500ms ease;
 }
 .or {
     text-align: center;

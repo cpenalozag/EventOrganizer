@@ -1,43 +1,40 @@
 import {Mongo} from 'meteor/mongo';
 import {Meteor} from "meteor/meteor";
 import {check} from "meteor/check";
-import {EventsAdmin} from "./eventsAdmin";
 
-export const HostEvents = new Mongo.Collection('hostEvents');
+export const EventsAdmin = new Mongo.Collection('eventsAdmin');
 
 if (Meteor.isServer) {
-    Meteor.publish("HostEvents", (userId) => {
-        return HostEvents.find({userId: userId}, {sort: {date: 1}});
+    Meteor.publish("EventsAdmin", () => {
+        return EventsAdmin.find({}, {sort: {createdAt: 1}});
     });
 }
 
-
 Meteor.methods({
-    "hostEvents.insert"(name, date, location, category, description, type, userId) {
+    "eventsAdmin.insert"(name, date, location, category, description, type) {
         check(name, String);
         check(date, String);
         check(location, String);
         check(category, String);
         check(description, String);
         check(type, String);
-        check(userId, String);
 
-        if (!this.userId) {
-            throw new Meteor.Error("Not-authorized");
+        var loggedInUser = Meteor.user();
+        if (!loggedInUser) {
+            throw new Meteor.Error(403, "Access denied")
         }
-        HostEvents.insert({
+        EventsAdmin.insert({
             name,
             date,
             type,
             location,
             category,
             description,
-            userId
+            createdAt: new Date(),
         })
-
     },
-    "hostEvents.remove"(idEvent) {
+    "eventsAdmin.remove"(idEvent) {
         check(idEvent, String);
-        HostEvents.remove({_id:idEvent});
+        EventsAdmin.remove({_id:idEvent});
     }
 });

@@ -20,7 +20,8 @@ if (Meteor.isServer) {
 
 
 Meteor.methods({
-    "events.insert"(name, date, location, category, description, type) {
+    "events.insert"(id, name, date, location, category, description, type) {
+        check(id, String);
         check(name, String);
         check(date, String);
         check(location, String);
@@ -28,10 +29,12 @@ Meteor.methods({
         check(description, String);
         check(type, String);
 
-        if (!this.userId) {
-            throw new Meteor.Error("Not-authorized");
+        var loggedInUser = Meteor.user();
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['admin'])) {
+            throw new Meteor.Error(403, "Access denied")
         }
         Events.insert({
+            _id:id,
             name,
             date,
             type,
@@ -40,6 +43,5 @@ Meteor.methods({
             description,
             createdAt: new Date(),
         })
-
     },
 });

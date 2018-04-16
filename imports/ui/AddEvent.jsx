@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
-import {Events} from "../api/events";
+import {EventsAdmin} from "../api/eventsAdmin";
 import ReactDOM from "react-dom";
 import Item from "./Item";
 import {Meteor} from "meteor/meteor";
@@ -28,10 +28,10 @@ export default class AddEvent extends Component {
         const category = this.refs.category.value;
         const description = this.refs.description.value;
         const type = this.refs.type.value;
-        if (!(name.length===0 || date.length===0 || location.length===0 || category.legth === 0 || description.length === 0)){
-            Meteor.call("events.insert", name, date, location, category, description, type)
+        if (!(name.length===0 || date.length===0 || location.length===0 || category.length === 0 || description.length === 0)){
+            Meteor.call("eventsAdmin.insert", name, date, location, category, description, type)
             Meteor.call("hostEvents.insert", name, date, location, category, description, type, Meteor.userId());
-            const res = Events.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
+            const res = EventsAdmin.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
 
             this.insertItems(res[0]._id);
             this.setState({goSearchEv: true});

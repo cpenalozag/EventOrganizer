@@ -7,7 +7,7 @@ import {userEventsList} from "../api/userEventsList";
 import {Meteor} from "meteor/meteor";
 // App component - represents the whole app
 
-const NUM_RECORDS = 3;
+const NUM_RECORDS = 12;
 const startAt = new Date();
 const pageNumber = new ReactiveVar(1);
 
