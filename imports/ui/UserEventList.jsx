@@ -120,8 +120,8 @@ export default withTracker(() => {
     Meteor.subscribe("ListEvents", Meteor.userId());
     Meteor.subscribe("HostEvents", Meteor.userId());
     return {
-        userEvents:userEventsList.find({}).fetch(),
-        hostEvents:HostEvents.find({}).fetch()
+        userEvents: userEventsList.find({}).fetch(),
+        hostEvents: HostEvents.find({}).fetch()
     };
 })(UserEventList);
 

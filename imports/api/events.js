@@ -11,7 +11,7 @@ if (Meteor.isServer) {
             limit: {type: Number},
             startAt: {type: Date}
         }).validate({limit, startAt});
-        return Events.find({createdAt: {$lte: startAt}}, {sort: {date: 1}, limit: limit});
+        return Events.find({createdAt: {$lte: startAt}, type: "Public"}, {sort: {date: 1}, limit: limit});
     });
     Meteor.publish("AllEvents", () => {
         return Events.find({});
