@@ -30,6 +30,15 @@ meteor
 open localhost:3000
 ```
 
+## Run Server Tests
+
+```
+git clone https://github.com/cpenalozag/event-organizer/
+cd event-organizer
+TEST_WATCH=1 meteor test --driver-package meteortesting:mocha [--port]
+Results in console
+```
+
 ## Built With
 
 * [Meteor](https://www.meteor.com)
