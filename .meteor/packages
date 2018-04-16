@@ -33,3 +33,4 @@ mdg:validated-method
 alanning:roles
 tarang:ssl
 ddp-rate-limiter
+meteortesting:mocha
