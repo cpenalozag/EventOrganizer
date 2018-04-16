@@ -10,7 +10,7 @@ class EventList extends Component {
         super(props);
         this.state = {
             search: "",
-            filterDate: false
+            filterDate: false,
         };
     }
 
@@ -23,9 +23,37 @@ class EventList extends Component {
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
-        return filteredEvents.map((event) => (
-            <Event key={event._id} event={event}/>
-        ));
+        return filteredEvents.map((event) => {
+            const showAdd = this.partOfEvent()||this.hostOfEvent() ? true:false;
+            (
+                <Event key={event._id} event={event} show={showAdd}/>
+            )
+        });
+    }
+
+    allEvents ()
+    {
+        return this.props.eventsList.length % 12 == 0;
+    }
+
+    partOfEvent(eventId) {
+        const contains = this.props.userEvents.filter((event)=>{
+            return event._id ===  eventId;
+        })
+        if (contains.length>0){
+            return true;
+        }
+        return false;
+    }
+
+    hostOfEvent(eventId) {
+        const contains = this.props.hostEvents.filter((event)=>{
+            return event._id ===  eventId;
+        })
+        if (contains.length>0){
+            return true;
+        }
+        return false;
     }
 
     render() {
@@ -47,11 +75,13 @@ class EventList extends Component {
                             transitionName="events" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
                                 {this.renderEvents()}
                             </ReactTransitionGroup>
-                            <div className="buttons centered">
-                                <button onClick={this.props.loadMore} className="btn btn-danger btn-lg">
-                                    Show More
-                                </button>
-                            </div>
+                            {this.allEvents() ?
+                                <div className="buttons centered">
+                                    <button onClick={this.props.loadMore} className="btn btn-danger btn-lg">
+                                        Show More
+                                    </button>
+                                </div>:""
+                            }
                         </div>
                     </div>
                 </div>

@@ -51,7 +51,7 @@ class Nav extends Component {
                         </nav>
                     </div>
 
-                    <Route exact path="/events" render={()=><EventList eventsList={this.props.eventsList} loadMore={this.props.loadMore} page={1} userEvents={this.props.userEvents} /> } />
+                    <Route exact path="/events" render={()=><EventList eventsList={this.props.eventsList} loadMore={this.props.loadMore} page={1} userEvents={this.props.userEvents} hostEvents={this.props.hostEvents} /> } />
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/verify" component={VerifyEvents}/>
                     <Route exact path="/new" component={AddEvent}/>

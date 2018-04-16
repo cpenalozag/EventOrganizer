@@ -1438,7 +1438,25 @@ textarea.fohm-control {
     color: #FFFFFF !important;
     text-align: center;
 }
-
+#login-username-or-email-label-and-input input{
+    color: #fff;
+    font-family: Montserrat;
+    width: 40%;
+    margin: auto;
+    border: 0;
+    border-radius: 4px;
+    background-color: rgba(255,255,255,0.2) !important;
+    padding: 4px 10px 0px;
+}
+#login-username-or-email-label-and-input label {
+    font-family: Montserrat;
+    color: white;
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 8px;
+    transition: opacity 0.3s ease-in-out;
+}
 #login-password-label-and-input input {
     color: #fff;
     font-family: Montserrat;
@@ -1462,6 +1480,7 @@ textarea.fohm-control {
 #login-username-label-and-input label {
     font-family: Montserrat;
     color: white;
+    min-width: 54%;
     font-size: 18px;
     margin-top: 15px;
     margin-bottom: 0px;
