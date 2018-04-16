@@ -1790,10 +1790,9 @@ textarea.fohm-control {
     text-transform: none;
     margin-top: -65px;
 }
-
-.card-title {
-    color: #252422;
-}
+.card-title{
+  color:#252422;
+  font-size:20px !important;
 
 .redT {
     color: #dc3545;
