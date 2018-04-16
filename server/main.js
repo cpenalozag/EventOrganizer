@@ -38,3 +38,39 @@ const loginRule = {
 
 // Add the rule, allowing up to 5 messages every 1000 milliseconds.
 DDPRateLimiter.addRule(loginRule, 5, 1000);
+
+// Define a rule to limit comment insertion rate
+const commentInsertRule = {
+    type: 'method',
+    name: 'Comments.insert'
+};
+
+// Add the rule, allowing 1 comment every 3000 milliseconds.
+DDPRateLimiter.addRule(commentInsertRule, 1, 3000);
+
+// Define a rule to limit item insertion rate
+const itemInsertRule = {
+    type: 'method',
+    name: 'items.insert'
+};
+
+// Add the rule, allowing 1 item every 3000 milliseconds.
+DDPRateLimiter.addRule(itemInsertRule, 1, 3000);
+
+// Define a rule to limit host event creation rate
+const hostEventInsertRule = {
+    type: 'method',
+    name: 'hostEvents.insert'
+};
+
+// Add the rule, allowing 1 item every 3000 milliseconds.
+DDPRateLimiter.addRule(hostEventInsertRule, 1, 10000);
+
+// Define a rule to limit admin event creation rate
+const adminEventInsertRule = {
+    type: 'method',
+    name: 'eventsAdmin.insert'
+};
+
+// Add the rule, allowing 1 item every 3000 milliseconds.
+DDPRateLimiter.addRule(adminEventInsertRule, 1, 10000);

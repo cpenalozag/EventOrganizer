@@ -54,7 +54,7 @@ h6, .h6 {
 }
 
 p {
-    font-size: 1.1em;
+    font-size: 1em;
     line-height: 1.5em;
     margin-bottom: 5px;
 }
@@ -1216,9 +1216,9 @@ body {
 form button {
     font-family: Montserrat;
     position: relative;
-    margin: 15px 0 5px 0;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: auto;
+    margin-top: 12%;
+    margin-bottom: 4%;
     background: rgba(255, 255, 255, 0.75);
     border: none;
     border-radius: 5px;
@@ -1261,7 +1261,7 @@ form button:hover {
 
 #login-buttons {
     font-family: Helvetica;
-    margin-left: 3vh;
+    margin: auto;
     margin-top: 13px;
     margin-bottom: 20px;
     box-sizing: border-box;
@@ -1308,6 +1308,7 @@ textarea.fohm-control {
     position: fixed;
     z-index: 5;
     top: 10%;
+    padding: 2% 2% !important;
     margin-left:-30vmin;
     background: rgba(220, 53, 69, 0.95);
     border-radius: 5px;
@@ -1355,15 +1356,14 @@ textarea.fohm-control {
 }
 
 #login-password-label-and-input {
-    display: flex;
+    display: block;
     align-items: center;
-    margin: 0 20px;
+    margin: 0 0;
 }
 
 #login-password-again-label-and-input {
     display: flex;
     align-items: center;
-    margin: 0 20px;
     border-bottom: 1px solid #FFFFFF;
 }
 
@@ -1391,12 +1391,17 @@ textarea.fohm-control {
     content: 'x';
     font-weight: 300;
     text-align: right;
-
+    margin-bottom: 5%;
 }
 
 .login-close-text:hover {
     font-weight: 500;
     color: #dc3545;
+}
+.login-text-and-button{
+    margin-top: 5%;
+    margin: auto;
+    width: 85%;
 }
 
 #login-buttons-logout {
@@ -1416,7 +1421,7 @@ textarea.fohm-control {
 #login-email-label-and-input input {
     color: #fff;
     font-family: Montserrat;
-    width: 60%;
+    width: 70%;
     margin: auto;
     border: 0;
     background-color: rgba(255,255,255,0.2) !important;
@@ -1426,7 +1431,7 @@ textarea.fohm-control {
 #login-username-label-and-input input {
     color: #fff;
     font-family: Montserrat;
-    width: 60%;
+    width: 70%;
     margin: auto;
     border: 0;
     border-radius: 4px;
@@ -1441,7 +1446,7 @@ textarea.fohm-control {
 #login-username-or-email-label-and-input input{
     color: #fff;
     font-family: Montserrat;
-    width: 40%;
+    width: 70%;
     margin: auto;
     border: 0;
     border-radius: 4px;
@@ -1452,7 +1457,8 @@ textarea.fohm-control {
     font-family: Montserrat;
     color: white;
     font-size: 18px;
-    margin-top: 15px;
+    width: 100%;
+    margin-top: 2%;
     margin-bottom: 0px;
     padding-bottom: 8px;
     transition: opacity 0.3s ease-in-out;
@@ -1460,7 +1466,7 @@ textarea.fohm-control {
 #login-password-label-and-input input {
     color: #fff;
     font-family: Montserrat;
-    width: 60%;
+    width: 70%;
     margin: auto;
     border: 0;
     border-radius: 4px;
@@ -1472,6 +1478,7 @@ textarea.fohm-control {
     font-family: Montserrat;
     color: white;
     font-size: 18px;
+    width: 100%;
     margin-top: 15px;
     margin-bottom: 0px;
     padding-bottom: 8px;
@@ -1480,7 +1487,7 @@ textarea.fohm-control {
 #login-username-label-and-input label {
     font-family: Montserrat;
     color: white;
-    min-width: 54%;
+    width: 100%;
     font-size: 18px;
     margin-top: 15px;
     margin-bottom: 0px;
@@ -1492,8 +1499,8 @@ textarea.fohm-control {
     font-family: Montserrat;
     color: white;
     font-size: 18px;
-    margin-top: 15px;
-    max-width: 32%;
+    margin-top: 2%;
+    width: 100%;
     margin-bottom: 0px;
     padding-bottom: 8px;
     transition: opacity 0.3s ease-in-out;
@@ -1503,7 +1510,8 @@ textarea.fohm-control {
     font-family: Montserrat;
     color: white;
     font-size: 18px;
-    margin-top: 15px;
+    width: 100%;
+    margin-top: 2%;
     margin-bottom: 0px;
     padding-bottom: 8px;
     transition: opacity 0.3s ease-in-out;
@@ -1882,7 +1890,9 @@ textarea.fohm-control {
 }
 
 #login-buttons-facebook {
-    padding: 5px 0px;
+    padding: 10px 0px;
+    margin-top: 4%;
+    margin-bottom: 4%;
     background-color: #3B5998;
     text-align: center;
     border-radius: 5px;
