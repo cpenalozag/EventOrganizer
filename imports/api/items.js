@@ -39,7 +39,7 @@ Meteor.methods({
         check(itemId, String);
         check(setChecked, Boolean);
 
-        Items.update(itemId, {$set:{checked:setChecked}});
+        Items.update(itemId, {$set:{checked:setChecked, checkedBy:Meteor.user().username}});
     },
 
     "items.setPrivate"(itemId,setToPrivate){
