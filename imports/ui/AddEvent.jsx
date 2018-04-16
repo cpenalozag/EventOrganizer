@@ -45,6 +45,7 @@ export default class AddEvent extends Component {
         this.state.items.map((item) => (
             Meteor.call('items.insert', item.text, res)
         ));
+        window.alert("Your event was save but must be approved first before publish. It will take few minutes. Meanwhile you can see it in 'My Events'");
     }
 
     handleSubmit(event) {
