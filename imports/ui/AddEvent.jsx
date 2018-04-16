@@ -32,8 +32,9 @@ export default class AddEvent extends Component {
             Meteor.call("eventsAdmin.insert", name, date, location, category, description, type)
             Meteor.call("hostEvents.insert", name, date, location, category, description, type, Meteor.userId());
             const res = EventsAdmin.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
-
+            console.log(res);
             this.insertItems(res[0]._id);
+            console.log(typeof res[0]._id);
             this.setState({goSearchEv: true});
         }
         else {
@@ -43,16 +44,9 @@ export default class AddEvent extends Component {
     }
 
     insertItems(res) {
-        let restItem = (this.state.items.map((item) => (
-            newItem = {
-                text: item.text,
-                idEvent: res
-            }
-        )));
-        restItem.map((item) => {
-            Meteor.call('items.insert', item.text, item.idEvent);
-        })
-
+        this.state.items.map((item) => (
+            Meteor.call('items.insert', item.text, res)
+        ));
     }
 
     handleSubmit(event) {
@@ -74,9 +68,9 @@ export default class AddEvent extends Component {
     }
 
     renderItems() {
-        return this.state.items.map((item) => (
+        return this.state.items.map((item, index) => (
             <div>
-                <Item key={item.text} item={item} add={true}/>
+                <Item key={index} item={item} add={true}/>
                 <hr/>
             </div>
         ));

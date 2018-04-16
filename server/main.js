@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Inject } from "meteor/meteorhacks:inject-initial";
+import { DDPRateLimiter } from 'meteor/ddp-rate-limiter'
 import '../imports/api/events.js';
 import '../imports/api/hostEvents.js';
 import '../imports/api/eventsAdmin.js'
@@ -14,9 +15,22 @@ Meteor.startup(() => {
     });
 });
 
+
 // Deny all client-side updates to user documents
 Meteor.users.deny({
     update() { return true; }
 });
 
-Roles.addUsersToRoles('Bqu9fCjFzMuRoSSQu', ['admin']);
+// Define a rule that matches login attempts by non-admin users.
+const loginRule = {
+    userId(userId) {
+        const user = Meteor.users.findOne(userId);
+        return user && user.type !== 'admin';
+    },
+
+    type: 'method',
+    name: 'login'
+};
+
+// Add the rule, allowing up to 5 messages every 1000 milliseconds.
+DDPRateLimiter.addRule(loginRule, 5, 1000);

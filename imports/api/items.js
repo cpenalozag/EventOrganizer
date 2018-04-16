@@ -16,7 +16,6 @@ Meteor.methods({
         check(text, String);
 
         //Make sure the user is logged in before inserting a item
-
         if(!this.userId){
             throw new Meteor.Error("Not-authorized");
         }
@@ -28,7 +27,6 @@ Meteor.methods({
         });
     },
     'items.remove'(itemId){
-        check(itemId, String);
         const item = Items.findOne(itemId);
         if(item.private && item.owner !== this.userId){
             throw new Meteor.Error('Not-authorized');
@@ -36,14 +34,13 @@ Meteor.methods({
         Items.remove(itemId);
     },
     "items.setChecked"(itemId, setChecked){
-        //check(itemId, String);
+        check(itemId, String);
         check(setChecked, Boolean);
 
         Items.update(itemId, {$set:{checked:setChecked}});
     },
 
     "items.setPrivate"(itemId,setToPrivate){
-        check(itemId, String);
         check(setToPrivate, Boolean);
 
         const item = Items.findOne(itemId);

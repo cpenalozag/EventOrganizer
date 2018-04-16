@@ -598,10 +598,17 @@ textarea .form-control {
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
     padding-top: 0 !important;
-    padding-bottom: 30px;
+    padding-bottom: 0 !important;
     background: #FFFFFF;
     box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
 }
+
+@media all and (max-width: 1000px) {
+    .navbar {
+        padding-bottom: 30px !important;
+    }
+}
+
 
 .navbar .navbar-brand {
     font-weight: 600;

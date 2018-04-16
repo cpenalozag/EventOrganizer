@@ -23,7 +23,6 @@ Meteor.methods({
     },
     "listEvents.update"(list){
 
-
         if(!this.userId){
             throw new Meteor.Error("Not-authorized");
         }
