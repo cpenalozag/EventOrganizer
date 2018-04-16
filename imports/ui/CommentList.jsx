@@ -20,7 +20,7 @@ class CommentList extends Component {
     }
 
     renderComments() {
-        return this.props.comments.filter(comment => comment.idEvent === this.props.id).map((comment) => (
+        return this.props.comments.map((comment) => (
             <Comment key={comment._id} comment={comment}/>
         ));
     }

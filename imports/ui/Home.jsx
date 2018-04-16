@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import {Route} from "react-router-dom";
-import EventList from "./EventList.js";
+import EventList from "./EventList.jsx";
 
 // Home component - represents the whole app
 class Home extends Component {
@@ -78,7 +78,7 @@ class Home extends Component {
                                     <div className="description">
                                         <h4 className="info-title">Add new events</h4>
                                         <p className="description">Create events and invite your friends
-                                            or let other people participate!</p>
+                                            or let other people join.</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,8 +89,8 @@ class Home extends Component {
                                     </div>
                                     <div className="description">
                                         <h4 className="info-title">Join events</h4>
-                                        <p>Browse the public events and join now! You can meet others through comments
-                                            and help with the item check list!</p>
+                                        <p>Join public events, meet participants through
+                                            comments and help out with the checklist!</p>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ class Home extends Component {
                                     </div>
                                     <div className="description">
                                         <h4 className="info-title">Browse your events</h4>
-                                        <p>Check the My Events tab to see the upcoming events which you are part of</p>
+                                        <p>Check the My Events tab to see your upcoming events.</p>
                                     </div>
                                 </div>
                             </div>

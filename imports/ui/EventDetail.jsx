@@ -1,66 +1,62 @@
 import React, {Component} from 'react';
 import CommentList from "./CommentList";
 import ItemList from "./ItemList";
-import {userEventsList} from "../api/userEventsList";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Items} from "../api/items.js";
 import {Comments} from "../api/comments";
+import {HostEvents} from "../api/hostEvents";
+import {Meteor} from "meteor/meteor";
+import {userEventsList} from "../api/userEventsList";
 
 
 // EventDetail component - represents the detail of a single event
 class EventDetail extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props);
         this.state = {
-            showAddEvent: true
-        };
+            showAdd: true,
+        }
     }
 
     addEvent() {
-
-        if (this.props.userEvents === undefined) {
-            userEventsList.insert({
-                _idUser: Meteor.userId(),
-                _ListEventsId: [
-                    this.props.location.state.event._id._str
-                ]
-            })
+        const newEvent = {
+            _id: this.props.location.state.event._id,
+            idUser: Meteor.userId(),
+            name: this.props.location.state.event.name,
+            date: this.props.location.state.event.date,
+            location: this.props.location.state.event.location,
+            category: this.props.location.state.event.category,
+            description: this.props.location.state.event.description,
         }
-        else {
-            const userEv = this.props.userEvents._ListEventsId;
-            const exists = userEv.filter((ev) => {
-                return ev === this.props.location.state.event._id;
-            })
-            if (!exists.length > 0) {
-                userEv.push(this.props.location.state.event._id);
-                const newEv = {
-                    _idUser: Meteor.userId(),
-                    _ListEventsId: userEv
-                }
-                res = userEventsList.update({_id: this.props.userEvents._id},
-                    {
-                        _idUser: Meteor.userId(),
-                        _ListEventsId: userEv
-                    },
-                    {upsert: true}
-                )
+        Meteor.call('listEvents.insert', newEvent);
 
-                this.setState({showAddEvent: false});
-            }
-            else
-                this.setState({showAddEvent: false});
-            window.alert("Now you are part of the event");
-        }
-
-
+        this.setState({showAdd: false});
+        window.alert("Now you are part of the event!");
     }
 
-    exist() {
+    partOfEvent() {
+        const contains = this.props.userEvents.filter((event)=>{
+          return event._id ===  this.props.location.state.event._id;
+        })
+        if (contains.length>0){
+            return true;
+        }
+        return false;
+    }
 
-        this.setState({showAddEvent: false});
+    hostOfEvent() {
+        const contains = this.props.hostEvents.filter((event)=>{
+            return event._id ===  this.props.location.state.event._id;
+        })
+        if (contains.length>0){
+            return true;
+        }
+        return false;
     }
 
     render() {
+
         return (
 
             <div className="blog-2 section section-white">
@@ -79,7 +75,7 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    {Meteor.userId() && this.state.showAddEvent ? <div className="buttons">
+                                    {Meteor.userId() && this.state.showAdd ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}
                                                     className="btn btn-danger btn-lg">
@@ -95,7 +91,9 @@ class EventDetail extends Component {
             </div>
         );
     }
+
 }
+
 
 class Detail extends Component {
 
@@ -121,10 +119,12 @@ class Detail extends Component {
 export default withTracker((props) => {
     Meteor.subscribe("items");
     Meteor.subscribe('Comments');
-    const userEvents = Meteor.userId() ? userEventsList.find({_idUser: Meteor.userId()}).fetch()[0] : {};
+    Meteor.subscribe("ListEvents", Meteor.userId());
+    Meteor.subscribe("HostEvents", Meteor.userId());
     return {
         items: Items.find({idEvent: props.match.params.eventId}).fetch(),
-        comments: Comments.find({}, {sort: {createdAt: -1}}).fetch(),
-        userEvents,
+        comments: Comments.find({idEvent: props.match.params.eventId}, {sort: {createdAt: -1}}).fetch(),
+        userEvents: userEventsList.find({}).fetch(),
+        hostEvents: HostEvents.find({}).fetch(),
     };
 })(EventDetail);
