@@ -1,5 +1,5 @@
 # Event - organizer
-
+<!--Camilo Zambrano: It's recommended to also have the motivation or spand further on your description-->
 Application aimed at facilitating the planning process of any kind of event. With the app you can share your events, include all the necessary items in a checklist, make comments, and more.
 
 Web app developed for the third project in the CS Web Development course at University of Los Andes, Colombia.
@@ -17,8 +17,8 @@ React
 ```
 
 ## Live demo
-
-You can check out a live version of the app[here](https://event-manager-webapp.herokuapp.com)
+<!--Camilo Zambrano: You forgot a space here :p-->
+You can check out a live version of the app [here.](https://event-manager-webapp.herokuapp.com)
 
 ## Local Deployment
 
