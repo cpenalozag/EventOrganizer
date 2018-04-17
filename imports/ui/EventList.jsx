@@ -23,34 +23,34 @@ class EventList extends Component {
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
-        return filteredEvents.map((event) => {
-            const showAdd = this.partOfEvent()||this.hostOfEvent() ? true:false;
+        const showAdd = this.partOfEvent() || this.hostOfEvent();
+        return filteredEvents.map((event) =>
+
             (
                 <Event key={event._id} event={event} show={showAdd}/>
             )
-        });
+        );
     }
 
-    allEvents ()
-    {
+    allEvents() {
         return this.props.eventsList.length % 12 == 0;
     }
 
     partOfEvent(eventId) {
-        const contains = this.props.userEvents.filter((event)=>{
-            return event._id ===  eventId;
+        const contains = this.props.userEvents.filter((event) => {
+            return event._id === eventId;
         })
-        if (contains.length>0){
+        if (contains.length > 0) {
             return true;
         }
         return false;
     }
 
     hostOfEvent(eventId) {
-        const contains = this.props.hostEvents.filter((event)=>{
-            return event._id ===  eventId;
+        const contains = this.props.hostEvents.filter((event) => {
+            return event._id === eventId;
         })
-        if (contains.length>0){
+        if (contains.length > 0) {
             return true;
         }
         return false;
@@ -72,7 +72,8 @@ class EventList extends Component {
                             <hr/>
                             <br/>
                             <ReactTransitionGroup component="div" className="row"
-                            transitionName="events" transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+                                                  transitionName="events" transitionEnterTimeout={500}
+                                                  transitionLeaveTimeout={500}>
                                 {this.renderEvents()}
                             </ReactTransitionGroup>
                             {this.allEvents() ?
@@ -80,7 +81,7 @@ class EventList extends Component {
                                     <button onClick={this.props.loadMore} className="btn btn-danger btn-lg">
                                         Show More
                                     </button>
-                                </div>:""
+                                </div> : ""
                             }
                         </div>
                     </div>
