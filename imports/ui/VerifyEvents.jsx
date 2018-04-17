@@ -38,7 +38,7 @@ class VerifyEvents extends Component {
 
 }
 
-
+//No es recomendable tener varios  withTracker, solamente lo debería tener la clase principal
 export default withTracker(() => {
     Meteor.subscribe("EventsAdmin", Meteor.userId());
     return {
