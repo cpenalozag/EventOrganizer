@@ -7,7 +7,7 @@ export const HostEvents = new Mongo.Collection('hostEvents');
 
 if (Meteor.isServer) {
     Meteor.publish("HostEvents", (userId) => {
-        return HostEvents.find({userId: userId}, {sort: {date: 1}});
+        return HostEvents.find({user: userId}, {sort: {date: 1}});
     });
 }
 

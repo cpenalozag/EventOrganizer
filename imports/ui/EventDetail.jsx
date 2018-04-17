@@ -13,6 +13,9 @@ import {userEventsList} from "../api/userEventsList";
 class EventDetail extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showAdd:true,
+        }
     }
 
     addEvent() {
@@ -51,7 +54,7 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    {Meteor.userId() && this.props.show ? <div className="buttons">
+                                    {Meteor.userId() && this.props.location.state.showAdd && this.state.showAdd ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}
                                                     className="btn btn-danger btn-lg">

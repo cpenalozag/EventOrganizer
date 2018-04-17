@@ -13,6 +13,7 @@ class UserEventList extends Component {
 
     constructor(props) {
         super(props);
+        console.log(this.props);
         this.state = {
             search: "",
             filterDate: false,
@@ -26,7 +27,6 @@ class UserEventList extends Component {
 
 
     renderEvents() {
-
         let events = this.props.userEvents;
         const filteredEvents = events.filter(
             (event) => {
@@ -38,7 +38,6 @@ class UserEventList extends Component {
     }
 
     renderHostedEvents() {
-
         let events = this.props.hostEvents;
         const filteredEvents = events.filter(
             (event) => {

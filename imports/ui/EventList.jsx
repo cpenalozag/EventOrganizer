@@ -8,6 +8,7 @@ class EventList extends Component {
 
     constructor(props) {
         super(props);
+        console.log(this.props);
         this.state = {
             search: "",
             filterDate: false,
@@ -23,12 +24,17 @@ class EventList extends Component {
             (event) => {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
-        const showAdd = this.partOfEvent() || this.hostOfEvent();
-        return filteredEvents.map((event) =>
-
-            (
-                <Event key={event._id} event={event} show={showAdd}/>
-            )
+        return filteredEvents.map((event) => {
+                if (this.hostOfEvent(event._id)) return false;
+                else if (this.partOfEvent(event._id)){
+                    return (
+                        <Event key={event._id} event={event} show={false}/>
+                    )
+                }
+                return (
+                    <Event key={event._id} event={event} show={true}/>
+                )
+            }
         );
     }
 
