@@ -14,9 +14,7 @@ Meteor.startup(() => {
         return html.replace(/<html>/, '<!-- HTML 5 -->\n<html lang="en">');
     });
     process.env.MAIL_URL="smtps://postmaster%40sandbox4537ad8100634307a8194ad2fda0381e.mailgun.org:21d08359dc71e870afd40c6dc2ed6d57-4497bd1d-a1a769ce@smtp.mailgun.org:587";
-    Accounts.config({
-        sendVerificationEmail:true
-    })
+    
 });
 
 
@@ -25,19 +23,6 @@ Meteor.users.deny({
     update() { return true; }
 });
 
-// Define a rule that matches login attempts by non-admin users.
-const loginRule = {
-    userId(userId) {
-        const user = Meteor.users.findOne(userId);
-        return user && user.type !== 'admin';
-    },
-
-    type: 'method',
-    name: 'login'
-};
-
-// Add the rule, allowing up to 5 messages every 1000 milliseconds.
-DDPRateLimiter.addRule(loginRule, 5, 1000);
 
 // Define a rule to limit comment insertion rate
 const commentInsertRule = {
@@ -56,21 +41,3 @@ const itemInsertRule = {
 
 // Add the rule, allowing 1 item every 3000 milliseconds.
 DDPRateLimiter.addRule(itemInsertRule, 1, 3000);
-
-// Define a rule to limit host event creation rate
-const hostEventInsertRule = {
-    type: 'method',
-    name: 'hostEvents.insert'
-};
-
-// Add the rule, allowing 1 item every 3000 milliseconds.
-DDPRateLimiter.addRule(hostEventInsertRule, 1, 10000);
-
-// Define a rule to limit admin event creation rate
-const adminEventInsertRule = {
-    type: 'method',
-    name: 'eventsAdmin.insert'
-};
-
-// Add the rule, allowing 1 item every 3000 milliseconds.
-DDPRateLimiter.addRule(adminEventInsertRule, 1, 10000);
