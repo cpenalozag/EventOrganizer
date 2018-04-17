@@ -1,11 +1,13 @@
+/*Camilo Zambrano: Try to organize your imports showing the defaults first, and then the other imports
+here I organized them in that way*/
 import React, {Component} from 'react';
-import {withTracker} from 'meteor/react-meteor-data';
-
 import Event from './Event.jsx';
+import EventList from "./EventList.jsx";
+
+import {withTracker} from 'meteor/react-meteor-data';
 import {userEventsList} from "../api/userEventsList";
 import {HostEvents} from "../api/hostEvents";
 import {Redirect, Route} from "react-router-dom";
-import EventList from "./EventList.jsx";
 import {Meteor} from "meteor/meteor";
 
 // App component - represents the whole app
@@ -115,6 +117,10 @@ class UserEventList extends Component {
     }
 }
 
+/*Camilo Zambrano: Maybe this doesn't apply when you have routing on React. But from what I understand
+you shouldn't add the withtracker to a child component, only to the parent of all the application or
+components that won't receive props. If you use the withtracker in the way you are doing here there could
+be some problems or conflicts between react and meteor on the props of your components*/
 export default withTracker(() => {
     Meteor.subscribe("ListEvents", Meteor.userId());
     Meteor.subscribe("HostEvents", Meteor.userId());
