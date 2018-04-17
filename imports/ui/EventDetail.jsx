@@ -4,9 +4,9 @@ import ItemList from "./ItemList";
 import {withTracker} from 'meteor/react-meteor-data';
 import {Items} from "../api/items.js";
 import {Comments} from "../api/comments";
-import {HostEvents} from "../api/hostEvents";
+import {Participants} from "../api/participants";
 import {Meteor} from "meteor/meteor";
-import {userEventsList} from "../api/userEventsList";
+import ParticipantList from "./ParticipantList";
 
 
 // EventDetail component - represents the detail of a single event
@@ -54,6 +54,9 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
+                                    <ParticipantList participants={this.props.participants}
+                                                 id={this.props.location.state.event._id}/>
+                                    <hr/>
                                     {Meteor.userId() && this.props.location.state.showAdd && this.state.showAdd ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}
@@ -98,8 +101,10 @@ class Detail extends Component {
 export default withTracker((props) => {
     Meteor.subscribe("items");
     Meteor.subscribe('Comments');
+    Meteor.subscribe('Participants', props.match.params.eventId);
     return {
         items: Items.find({idEvent: props.match.params.eventId}).fetch(),
         comments: Comments.find({idEvent: props.match.params.eventId}, {sort: {createdAt: -1}}).fetch(),
+        participants: Participants.find({}).fetch()
     };
 })(EventDetail);

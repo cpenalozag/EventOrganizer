@@ -2,8 +2,8 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import {withTracker} from "meteor/react-meteor-data";
 
-// Comments component
-class CommentList extends Component {
+// Notifications component
+class Notifications extends Component {
     constructor(props) {
         super(props);
     }
@@ -27,25 +27,20 @@ class CommentList extends Component {
 
     render() {
         return (
-            <div className="comments media-area">
-                <h2 className="text-center title">Comments</h2>
-                <form onSubmit={this.handleSubmit.bind(this)}>
-                    {Meteor.userId() ?
-                        <input className="form-control border-input" type="text" ref="textInput"
-                               placeholder="Type to add a new comment"/> :
-                        <input className="form-control border-input" type="text" ref="textInput" disabled
-                               placeholder="You need to log in to write a comment!"/>
-                    }
-                </form>
-                {this.renderComments()}
+            <div className="section">
+                <div className="comments media-area">
+                    <h2 className="text-center title">Notifications</h2>
+                    <p className="text-center">Coming soon...</p>
+
+                </div>
             </div>
         );
     }
 }
 
-export default CommentList;
+export default Notifications;
 
-class Comment extends Component {
+class Notification extends Component {
     render() {
         return (
             <div className="media">

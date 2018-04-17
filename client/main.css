@@ -577,7 +577,7 @@ textarea .form-control {
 }
 
 .section {
-    min-height: 65vmax;
+    min-height: 50vmax;
     padding-top: 10vh;
     padding-bottom: 5vh;
     position: relative;
@@ -1411,7 +1411,12 @@ textarea.fohm-control {
 #login-buttons-open-change-password {
     cursor: pointer;
 }
-
+#login-buttons-open-change-password:hover {
+    color: #ffb7c5;
+}
+#login-buttons-logout:hover {
+    color: #ffb7c5;
+}
 .additional-link-container {
     color: #FFFFFF;
     text-align: center;

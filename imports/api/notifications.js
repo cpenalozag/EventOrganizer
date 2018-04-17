@@ -11,17 +11,14 @@ if(Meteor.isServer){
 }
 
 Meteor.methods({
-    "Notifications.insert"(text,idUser){
-        check(text, String);
+    "Notifications.insert"(type,eventId,userId){
+        check(type, String);
 
-        //Make sure the user is logged in before inserting a comment
-        if(!this.userId){
-            throw new Meteor.Error("Not-authorized");
-        }
 
         Notifications.insert({
-            text,
-            idUser,
+            type,
+            eventId,
+            userId,
             createdAt: new Date()
         });
     },
