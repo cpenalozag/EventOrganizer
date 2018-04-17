@@ -8,7 +8,7 @@ class EventList extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props);
+        //console.log(this.props);
         this.state = {
             search: "",
             filterDate: false,
@@ -18,6 +18,16 @@ class EventList extends Component {
     updateSearch(evt) {
         this.setState({search: evt.target.value.substr(0, 20)});
     }
+
+    /*componentDidMount()
+    {
+        if(sessionStorage.getItem('idEvent')!==null){
+            console.log("idEvent + " + sessionStorage.getItem('idEvent'));
+            const filteredEvent = this.props.eventsList.filter((event)=> {return event._id===sessionStorage.getItem('idEvent');});
+            console.log(filteredEvent);
+            //sessionStorage.setItem('idEvent', null);
+        }
+    }*/
 
     renderEvents() {
         const filteredEvents = this.props.eventsList.filter(

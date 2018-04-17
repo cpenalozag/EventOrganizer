@@ -6,6 +6,9 @@ import Foot from "./Foot.jsx";
 import {userEventsList} from "../api/userEventsList";
 import {Meteor} from "meteor/meteor";
 import {HostEvents} from "../api/hostEvents";
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 // App component - represents the whole app
 
 const NUM_RECORDS = 12;
@@ -20,12 +23,12 @@ class App extends Component {
     loadMore () {
         pageNumber.set(pageNumber.get() + 1);
     }
-
     render() {
         return (
             <div>
                 <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore.bind(this)}
                      userEvents={this.props.userEvents} hostEvents={this.props.hostEvents}/>
+                <Alert stack={{limit: 3}} />
                 <Foot/>
             </div>
 

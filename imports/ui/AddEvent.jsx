@@ -4,6 +4,8 @@ import {EventsAdmin} from "../api/eventsAdmin";
 import ReactDOM from "react-dom";
 import Item from "./Item";
 import {Meteor} from "meteor/meteor";
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 
 
 // Add event component
@@ -12,7 +14,8 @@ export default class AddEvent extends Component {
         super(props);
         this.state = {
             goSearchEv: false,
-            items: []
+            items: [],
+            idEventCurrent:0
         };
     }
 
@@ -32,6 +35,8 @@ export default class AddEvent extends Component {
             Meteor.call("eventsAdmin.insert", name, date, location, category, description, type)
             const res = EventsAdmin.find({}, {limit: 1, sort: {createdAt: -1}}).fetch();
             Meteor.call("hostEvents.insert", res[0]._id, name, date, location, category, description, type, Meteor.userId());
+            this.setState({idEventCurrent:res[0]._id});
+            sessionStorage.setItem("idEvent", res[0]._id);
             this.insertItems(res[0]._id);
             this.setState({goSearchEv: true});
         }
@@ -62,6 +67,16 @@ export default class AddEvent extends Component {
             this.setState({items: listIt});
             ReactDOM.findDOMNode(this.refs.textInput).value = "";
         }
+        /*Alert.success('<h1>Test message 1</h1>', {
+            position: 'top-right',
+            effect: 'genie',
+            onShow: function () {
+                console.log('aye!')
+            },
+            beep: false,
+            timeout: 5000,
+            offset: 100
+        });*/
 
 
     }
