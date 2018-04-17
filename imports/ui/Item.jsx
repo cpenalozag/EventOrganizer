@@ -12,7 +12,9 @@ export default class Item extends Component {
             <div>
                 {!this.props.add ?
                     <div>
-                        <ul className={!!this.props.item.checked ? "tick ul-cb" : "noTick ul-cb"}>
+                        {/*Camilo Zambrano: There is no need to negate twice here. If you have ANYTHING other than null, 0
+                        or undefined, it will evaluate to "true" */}
+                        <ul className={this.props.item.checked ? "tick ul-cb" : "noTick ul-cb"}>
                             {Meteor.userId() ?
                                 <input className="form-check-label " type="checkbox" readOnly
                                        checked={!!this.props.item.checked} onClick={this.toggledChecked.bind(this)}/>
