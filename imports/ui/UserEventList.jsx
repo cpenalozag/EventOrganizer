@@ -21,7 +21,8 @@ class UserEventList extends Component {
         };
     }
 
-    updateSearch(evt) {
+    //Utilizando arrow functions no hay necesidad de utilizar bind(this)
+    let updateSearch = (evt) => {
         this.setState({search: evt.target.value.substr(0, 20)});
     }
 
@@ -76,7 +77,7 @@ class UserEventList extends Component {
                                                 <input type="text" className="form-control border-input sb"
                                                        placeholder="Try: Torneo cachito uniandes"
                                                        value={this.state.search}
-                                                       onChange={this.updateSearch.bind(this)}/>
+                                                       onChange={this.updateSearch}/>
                                             </div>
                                             <hr/>
                                             <br/>
