@@ -10,6 +10,7 @@ if(Meteor.isServer){
     });
 }
 
+//Es buena idea incluir un rate limit para evitar que les tumben la página.
 
 Meteor.methods({
     "Comments.insert"(text,idEvent){
