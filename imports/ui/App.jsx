@@ -18,6 +18,7 @@ const pageNumber = new ReactiveVar(1);
 class App extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props);
     }
 
     loadMore () {
@@ -27,7 +28,7 @@ class App extends Component {
         return (
             <div>
                 <Nav currentUser = {this.props.currentUser} eventsList ={this.props.eventsList} loadMore={this.loadMore.bind(this)}
-                     userEvents={this.props.userEvents} hostEvents={this.props.hostEvents}/>
+                     userEvents={this.props.userEvents} hostEvents={this.props.hostEvents} notifications={this.props.notifications}/>
                 <Alert stack={{limit: 3}} />
                 <Foot/>
             </div>

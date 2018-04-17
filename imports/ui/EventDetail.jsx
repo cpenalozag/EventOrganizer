@@ -13,6 +13,7 @@ import ParticipantList from "./ParticipantList";
 class EventDetail extends Component {
     constructor(props) {
         super(props);
+        console.log(this.props);
         this.state = {
             showAdd:true,
         }
@@ -54,9 +55,11 @@ class EventDetail extends Component {
                                     <CommentList comments={this.props.comments}
                                                  id={this.props.location.state.event._id}/>
                                     <hr/>
-                                    <ParticipantList participants={this.props.participants}
-                                                 id={this.props.location.state.event._id}/>
-                                    <hr/>
+                                    {this.props.location.state.host?
+                                        <ParticipantList participants={this.props.participants}
+                                                         id={this.props.location.state.event._id}/>
+                                        :""
+                                    }
                                     {Meteor.userId() && this.props.location.state.showAdd && this.state.showAdd ? <div className="buttons">
                                         <div className="centered">
                                             <button onClick={this.addEvent.bind(this)}

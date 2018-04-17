@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import ReactTransitionGroup from "react-addons-css-transition-group"
 import Event from './Event.jsx';
+import {Meteor} from "meteor/meteor";
 
 // App component - represents the whole app
 class EventList extends Component {
 
     constructor(props) {
         super(props);
-        //console.log(this.props);
+        console.log(Meteor.user());
         this.state = {
             search: "",
             filterDate: false,
@@ -38,11 +39,11 @@ class EventList extends Component {
                 if (this.hostOfEvent(event._id)) return false;
                 else if (this.partOfEvent(event._id)){
                     return (
-                        <Event key={event._id} event={event} show={false}/>
+                        <Event key={event._id} event={event} show={false} host={false}/>
                     )
                 }
                 return (
-                    <Event key={event._id} event={event} show={true}/>
+                    <Event key={event._id} event={event} show={true} host={false}/>
                 )
             }
         );

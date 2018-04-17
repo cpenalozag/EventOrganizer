@@ -33,7 +33,7 @@ class UserEventList extends Component {
                 return event.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
         return filteredEvents.map((event) => (
-            <Event key={event._id} event={event}/>
+            <Event key={event._id} event={event} host={false}/>
         ));
     }
 

@@ -5,6 +5,8 @@ import '../imports/api/events.js';
 import '../imports/api/hostEvents.js';
 import '../imports/api/eventsAdmin.js'
 import '../imports/api/items.js';
+import '../imports/api/notifications.js';
+import '../imports/api/participants.js';
 import '../imports/api/userEventsList.js';
 import '../imports/api/comments.js';
 

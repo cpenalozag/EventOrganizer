@@ -5,20 +5,20 @@ import {check} from "meteor/check";
 export const Notifications = new Mongo.Collection('Notifications');
 
 if(Meteor.isServer){
-    Meteor.publish("Notifications", (id) => {
-        return Notifications.find({userId:id}, {sort: {createdAt: 1}});
+    Meteor.publish("Notifications", (user) => {
+        return Notifications.find({username:user}, {sort: {createdAt: 1}});
     });
 }
 
 Meteor.methods({
-    "Notifications.insert"(type,eventId,userId){
+    "Notifications.insert"(type,eventId,username){
         check(type, String);
 
 
         Notifications.insert({
             type,
             eventId,
-            userId,
+            username,
             createdAt: new Date()
         });
     },

@@ -32,7 +32,7 @@ class ParticipantList extends Component {
                 <h2 className="text-center title">Invited Users</h2>
                 <form className="new-task" onSubmit={this.handleSubmit.bind(this)}>
                         <input className="form-control border-input" type="text" ref="textInput"
-                               placeholder="Type your friend's email or username to invite them"/>
+                               placeholder="Type your friend's email to invite them"/>
                 </form>
                 {this.renderParticipants()}
             </div>

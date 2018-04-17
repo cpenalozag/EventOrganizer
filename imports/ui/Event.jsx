@@ -65,7 +65,7 @@ export default class Event extends Component {
                             </div>
                         </div>
                         :
-                        <Link to={{pathname: `/events/${this.props.event._id}`, state: {event: this.props.event, showAdd:this.props.show}}}>
+                        <Link to={{pathname: `/events/${this.props.event._id}`, state: {event: this.props.event, showAdd:this.props.show, host:this.props.host}}}>
                             <div className="card card-blog event">
                                 <div className="card-body">
                                     <h6 className="redT"><strong>{this.props.event.category}</strong></h6>

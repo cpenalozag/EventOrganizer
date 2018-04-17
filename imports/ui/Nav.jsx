@@ -70,7 +70,7 @@ class Nav extends Component {
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/verify" component={VerifyEvents}/>
                     <Route exact path="/new" component={AddEvent}/>
-                    <Route exact path="/notifications" component={Notifications}/>
+                    <Route exact path="/notifications" render={() => <Notifications notifications={this.props.notifications}/>}/>
                     <Route exact path="/events/:eventId" component={EventDetail}/>
                     <Route exact path="/myEvents" render={() => <UserEventList userEvents={this.props.eventsList}
                                                                                currentUser={this.props.currentUser}/>}/>
